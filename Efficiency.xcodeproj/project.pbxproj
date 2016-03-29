@@ -15,6 +15,8 @@
 		E0A4B2A21CAA872B001C81FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0A4B2A01CAA872B001C81FC /* LaunchScreen.storyboard */; };
 		E0A4B2AD1CAA872B001C81FC /* EfficiencyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A4B2AC1CAA872B001C81FC /* EfficiencyTests.swift */; };
 		E0A4B2B81CAA872B001C81FC /* EfficiencyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A4B2B71CAA872B001C81FC /* EfficiencyUITests.swift */; };
+		E0FF020F1CAAD2BF00A7AED5 /* Detail2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FF020D1CAAD2BF00A7AED5 /* Detail2ViewController.swift */; };
+		E0FF02101CAAD2BF00A7AED5 /* Detail2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0FF020E1CAAD2BF00A7AED5 /* Detail2ViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		E0A4B2B31CAA872B001C81FC /* EfficiencyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EfficiencyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0A4B2B71CAA872B001C81FC /* EfficiencyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EfficiencyUITests.swift; sourceTree = "<group>"; };
 		E0A4B2B91CAA872B001C81FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E0FF020D1CAAD2BF00A7AED5 /* Detail2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Detail2ViewController.swift; sourceTree = "<group>"; };
+		E0FF020E1CAAD2BF00A7AED5 /* Detail2ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Detail2ViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,8 @@
 				E0A4B29E1CAA872B001C81FC /* Assets.xcassets */,
 				E0A4B2A01CAA872B001C81FC /* LaunchScreen.storyboard */,
 				E0A4B2A31CAA872B001C81FC /* Info.plist */,
+				E0FF020D1CAAD2BF00A7AED5 /* Detail2ViewController.swift */,
+				E0FF020E1CAAD2BF00A7AED5 /* Detail2ViewController.xib */,
 			);
 			path = Efficiency;
 			sourceTree = "<group>";
@@ -234,6 +240,7 @@
 			files = (
 				E0A4B2A21CAA872B001C81FC /* LaunchScreen.storyboard in Resources */,
 				E0A4B29F1CAA872B001C81FC /* Assets.xcassets in Resources */,
+				E0FF02101CAAD2BF00A7AED5 /* Detail2ViewController.xib in Resources */,
 				E0A4B29D1CAA872B001C81FC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,6 +268,7 @@
 			files = (
 				E0A4B29A1CAA872B001C81FC /* DetailViewController.swift in Sources */,
 				E0A4B2981CAA872B001C81FC /* MasterViewController.swift in Sources */,
+				E0FF020F1CAAD2BF00A7AED5 /* Detail2ViewController.swift in Sources */,
 				E0A4B2961CAA872B001C81FC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -490,6 +498,7 @@
 				E0A4B2BE1CAA872B001C81FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E0A4B2BF1CAA872B001C81FC /* Build configuration list for PBXNativeTarget "EfficiencyTests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +507,7 @@
 				E0A4B2C11CAA872B001C81FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E0A4B2C21CAA872B001C81FC /* Build configuration list for PBXNativeTarget "EfficiencyUITests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +516,7 @@
 				E0A4B2C41CAA872B001C81FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
