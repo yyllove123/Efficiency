@@ -1,19 +1,22 @@
 //
-//  Detail2ViewController.swift
+//  PicturesDetailViewController.swift
 //  Efficiency
 //
-//  Created by Yalin on 16/3/29.
+//  Created by Yalin on 16/3/30.
 //  Copyright © 2016年 Yalin. All rights reserved.
 //
 
 import UIKit
 
-class Detail2ViewController: UIViewController {
-
+class PicturesDetailViewController: UIViewController {
     
-    convenience init() {
-        self.init(nibName: "Detail2ViewController", bundle: nil)
+    var viewModel: PictureDetailViewModel?
+    
+    convenience init(folder: FolderModel) {
+        self.init(nibName: "PicturesDetailViewController", bundle: nil)
+        self.viewModel = PictureDetailViewModel(folder: folder)
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
