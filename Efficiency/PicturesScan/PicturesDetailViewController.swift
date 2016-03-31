@@ -8,9 +8,11 @@
 
 import UIKit
 
-class PicturesDetailViewController: UIViewController {
+class PicturesDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var viewModel: PictureDetailViewModel?
+    
+    @IBOutlet weak var tableView: UITableView!
     
     convenience init(folder: FolderModel) {
         self.init(nibName: "PicturesDetailViewController", bundle: nil)
@@ -21,6 +23,7 @@ class PicturesDetailViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "PictureDetailCell")
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,7 +31,6 @@ class PicturesDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
     /*
     // MARK: - Navigation
 
@@ -39,4 +41,14 @@ class PicturesDetailViewController: UIViewController {
     }
     */
 
+    // MARK: - TableView DataSource Delegate
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel!.contents.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("PictureDetailCell", forIndexPath: indexPath)
+        
+        return cell
+    }
 }

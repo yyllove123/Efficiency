@@ -10,6 +10,8 @@ import UIKit
 
 struct PictureDetailViewModel {
 
+    var contents: [String] = []
+    
     init(folder: FolderModel) {
         
     }

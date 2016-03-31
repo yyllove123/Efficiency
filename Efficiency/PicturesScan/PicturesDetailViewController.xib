@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PicturesDetailViewController" customModule="Efficiency" customModuleProvider="target">
             <connections>
+                <outlet property="tableView" destination="Tkc-vT-LXj" id="bZs-o9-BUJ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,14 +16,23 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="图片详情" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4bW-RD-4ei">
-                    <rect key="frame" x="53" y="121" width="68" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tkc-vT-LXj">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="xTp-B0-9Hn"/>
+                        <outlet property="delegate" destination="-1" id="2X7-UM-xMS"/>
+                    </connections>
+                </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Tkc-vT-LXj" secondAttribute="bottom" id="4bd-Ky-jM7"/>
+                <constraint firstItem="Tkc-vT-LXj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="KuV-Pv-AiF"/>
+                <constraint firstAttribute="trailing" secondItem="Tkc-vT-LXj" secondAttribute="trailing" id="bqw-fv-MIS"/>
+                <constraint firstItem="Tkc-vT-LXj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="mO1-Z7-dk0"/>
+            </constraints>
+            <point key="canvasLocation" x="275" y="348"/>
         </view>
     </objects>
 </document>
