@@ -23,7 +23,10 @@ class PicturesDetailViewController: UIViewController, UITableViewDataSource, UIT
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "PictureDetailCell")
+        self.title = viewModel?.name
+        
+        let cellNib = UINib(nibName: "PicDetailCell", bundle: nil)
+        self.tableView.registerNib(cellNib, forCellReuseIdentifier: "PicDetailCell")
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,8 +50,14 @@ class PicturesDetailViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("PictureDetailCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("PicDetailCell", forIndexPath: indexPath) as! PicDetailCell
+        
+        cell.picPath = viewModel!.contents[indexPath.row].path
         
         return cell
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return viewModel!.contents[indexPath.row].height
     }
 }

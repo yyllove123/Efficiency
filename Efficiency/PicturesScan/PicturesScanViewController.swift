@@ -18,6 +18,12 @@ class PicturesScanViewController: UIViewController , UITableViewDataSource, UITa
         self.init(nibName: "PicturesScanViewController", bundle: nil)
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        viewModel.refreshDatas()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,6 +35,7 @@ class PicturesScanViewController: UIViewController , UITableViewDataSource, UITa
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        
         // Dispose of any resources that can be recreated.
     }
     
