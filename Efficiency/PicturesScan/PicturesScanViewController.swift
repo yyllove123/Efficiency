@@ -50,6 +50,7 @@ class PicturesScanViewController: UIViewController , UITableViewDataSource, UITa
     }
     */
 
+    // MARK: - TableView DataSource
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.datas.count
     }

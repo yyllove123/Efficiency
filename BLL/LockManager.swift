@@ -41,7 +41,7 @@ class LockManager: NSObject, UIApplicationDelegate {
     
     static func enterLockController() {
         if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
-            delegate.window?.rootViewController?.presentViewController(self.lockController(), animated: true, completion: nil)
+//            delegate.window?.rootViewController?.presentViewController(self.lockController(), animated: true, completion: nil)
         }
     }
 }

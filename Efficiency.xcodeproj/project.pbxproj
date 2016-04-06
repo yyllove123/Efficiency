@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E01FF4E41CB0D0BE008676B8 /* LockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01FF4E31CB0D0BE008676B8 /* LockManager.swift */; };
+		E0426D5D1CB54C2000B7F68B /* DocumentsImportManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0426D5C1CB54C2000B7F68B /* DocumentsImportManager.swift */; };
 		E08868951CB0BADF00128A66 /* PictureDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C7CEE81CAC217B005A7942 /* PictureDetailViewModel.swift */; };
 		E08868961CB0BCA500128A66 /* FolderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C7CEE01CAC1925005A7942 /* FolderModel.swift */; };
 		E08868971CB0BCA500128A66 /* FileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C7CEE21CAC192E005A7942 /* FileModel.swift */; };
@@ -21,6 +22,10 @@
 		E08868A81CB0CC5300128A66 /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08868A61CB0CC5300128A66 /* Crypto.swift */; };
 		E08868B01CB0CCEC00128A66 /* LockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08868AF1CB0CCEC00128A66 /* LockData.swift */; };
 		E08868B11CB0CCEC00128A66 /* LockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08868AF1CB0CCEC00128A66 /* LockData.swift */; };
+		E08E94121CB54E99002FF9EB /* SelectFolderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08E94101CB54E99002FF9EB /* SelectFolderController.swift */; };
+		E08E94131CB54E99002FF9EB /* SelectFolderController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E08E94111CB54E99002FF9EB /* SelectFolderController.xib */; };
+		E08E94151CB54F1E002FF9EB /* SelectFolderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08E94141CB54F1E002FF9EB /* SelectFolderViewModel.swift */; };
+		E08E94171CB5584B002FF9EB /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08E94161CB5584B002FF9EB /* Alert.swift */; };
 		E0A4B2961CAA872B001C81FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A4B2951CAA872B001C81FC /* AppDelegate.swift */; };
 		E0A4B29D1CAA872B001C81FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0A4B29B1CAA872B001C81FC /* Main.storyboard */; };
 		E0A4B29F1CAA872B001C81FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0A4B29E1CAA872B001C81FC /* Assets.xcassets */; };
@@ -61,6 +66,7 @@
 
 /* Begin PBXFileReference section */
 		E01FF4E31CB0D0BE008676B8 /* LockManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LockManager.swift; sourceTree = "<group>"; };
+		E0426D5C1CB54C2000B7F68B /* DocumentsImportManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentsImportManager.swift; sourceTree = "<group>"; };
 		E088689A1CB0C11D00128A66 /* PicDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicDetailCell.swift; sourceTree = "<group>"; };
 		E088689B1CB0C11D00128A66 /* PicDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PicDetailCell.xib; sourceTree = "<group>"; };
 		E088689E1CB0C64500128A66 /* PicModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicModel.swift; sourceTree = "<group>"; };
@@ -70,6 +76,10 @@
 		E08868A91CB0CCAC00128A66 /* Efficiency-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Efficiency-Bridging-Header.h"; sourceTree = "<group>"; };
 		E08868AA1CB0CCAC00128A66 /* EfficiencyTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "EfficiencyTests-Bridging-Header.h"; path = "../Efficiency/EfficiencyTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		E08868AF1CB0CCEC00128A66 /* LockData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LockData.swift; sourceTree = "<group>"; };
+		E08E94101CB54E99002FF9EB /* SelectFolderController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectFolderController.swift; sourceTree = "<group>"; };
+		E08E94111CB54E99002FF9EB /* SelectFolderController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectFolderController.xib; sourceTree = "<group>"; };
+		E08E94141CB54F1E002FF9EB /* SelectFolderViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectFolderViewModel.swift; sourceTree = "<group>"; };
+		E08E94161CB5584B002FF9EB /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		E0A4B2921CAA872B001C81FC /* Efficiency.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Efficiency.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0A4B2951CAA872B001C81FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0A4B29C1CAA872B001C81FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -124,9 +134,20 @@
 		E08868A51CB0CC2900128A66 /* Vender */ = {
 			isa = PBXGroup;
 			children = (
+				E08E94161CB5584B002FF9EB /* Alert.swift */,
 				E08868A61CB0CC5300128A66 /* Crypto.swift */,
 			);
 			path = Vender;
+			sourceTree = "<group>";
+		};
+		E08E940F1CB54E85002FF9EB /* SelectedFolder */ = {
+			isa = PBXGroup;
+			children = (
+				E08E94101CB54E99002FF9EB /* SelectFolderController.swift */,
+				E08E94111CB54E99002FF9EB /* SelectFolderController.xib */,
+				E08E94141CB54F1E002FF9EB /* SelectFolderViewModel.swift */,
+			);
+			path = SelectedFolder;
 			sourceTree = "<group>";
 		};
 		E0A4B2891CAA872B001C81FC = {
@@ -156,6 +177,7 @@
 		E0A4B2941CAA872B001C81FC /* Efficiency */ = {
 			isa = PBXGroup;
 			children = (
+				E08E940F1CB54E85002FF9EB /* SelectedFolder */,
 				E0C7CEDB1CAC187F005A7942 /* Lock */,
 				E0C7CE921CAC01DF005A7942 /* Master */,
 				E0C7CE8B1CAC0174005A7942 /* PicturesScan */,
@@ -252,6 +274,7 @@
 			children = (
 				E0C7CEDC1CAC189F005A7942 /* PicturesScanManager.swift */,
 				E01FF4E31CB0D0BE008676B8 /* LockManager.swift */,
+				E0426D5C1CB54C2000B7F68B /* DocumentsImportManager.swift */,
 			);
 			path = BLL;
 			sourceTree = "<group>";
@@ -372,6 +395,7 @@
 				E08868A41CB0CAE300128A66 /* LockViewController.xib in Resources */,
 				E0C7CE901CAC01A0005A7942 /* PicturesScanViewController.xib in Resources */,
 				E0A4B2A21CAA872B001C81FC /* LaunchScreen.storyboard in Resources */,
+				E08E94131CB54E99002FF9EB /* SelectFolderController.xib in Resources */,
 				E0C7CEE71CAC2142005A7942 /* PicturesDetailViewController.xib in Resources */,
 				E0A4B29F1CAA872B001C81FC /* Assets.xcassets in Resources */,
 				E0A4B29D1CAA872B001C81FC /* Main.storyboard in Resources */,
@@ -402,9 +426,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0C7CE971CAC02B4005A7942 /* MasterViewModel.swift in Sources */,
+				E08E94121CB54E99002FF9EB /* SelectFolderController.swift in Sources */,
 				E0C7CEE31CAC192E005A7942 /* FileModel.swift in Sources */,
 				E0C7CEE11CAC1925005A7942 /* FolderModel.swift in Sources */,
+				E0426D5D1CB54C2000B7F68B /* DocumentsImportManager.swift in Sources */,
 				E0C7CE8E1CAC01A0005A7942 /* PicturesScanViewController.swift in Sources */,
+				E08E94171CB5584B002FF9EB /* Alert.swift in Sources */,
 				E01FF4E41CB0D0BE008676B8 /* LockManager.swift in Sources */,
 				E0C7CED51CAC123F005A7942 /* PicturesScanViewModel.swift in Sources */,
 				E08868A31CB0CAE300128A66 /* LockViewController.swift in Sources */,
@@ -417,6 +444,7 @@
 				E08868B01CB0CCEC00128A66 /* LockData.swift in Sources */,
 				E08868A71CB0CC5300128A66 /* Crypto.swift in Sources */,
 				E0C7CEDF1CAC18CE005A7942 /* DocumentsManager.swift in Sources */,
+				E08E94151CB54F1E002FF9EB /* SelectFolderViewModel.swift in Sources */,
 				E088689F1CB0C64500128A66 /* PicModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -565,7 +593,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Efficiency/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = yalin.Efficiency;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -581,7 +609,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Efficiency/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = yalin.Efficiency;
 				PRODUCT_NAME = "$(TARGET_NAME)";

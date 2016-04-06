@@ -6,6 +6,8 @@
 //  Copyright © 2016年 Yalin. All rights reserved.
 //
 
+// http://www.jianshu.com/p/d6fe1e7af9b6
+
 import UIKit
 
 class DocumentsManager: NSObject {
@@ -25,5 +27,13 @@ class DocumentsManager: NSObject {
         }
         
         return folders
+    }
+    
+    class func createFolder(name: String) -> FolderModel{
+        let folderPath = NSHomeDirectory() + "/Documents/" + "pic_\(name)"
+        
+       try! NSFileManager.defaultManager().createDirectoryAtPath(folderPath, withIntermediateDirectories: true, attributes: nil)
+        
+        return FolderModel(path: folderPath, name: name)
     }
 }

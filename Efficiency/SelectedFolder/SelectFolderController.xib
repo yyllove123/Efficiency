@@ -4,9 +4,9 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PicturesScanViewController" customModule="Efficiency" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SelectFolderController" customModule="Efficiency" customModuleProvider="target">
             <connections>
-                <outlet property="tableView" destination="dhn-LR-Rbl" id="CZK-jG-Dj7"/>
+                <outlet property="tableView" destination="FhG-uu-eYd" id="Rqj-Kq-Hcn"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,23 +15,22 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dhn-LR-Rbl">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FhG-uu-eYd">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
-                        <outlet property="dataSource" destination="-1" id="tbG-Rb-r6d"/>
-                        <outlet property="delegate" destination="-1" id="Qvq-TW-qEy"/>
+                        <outlet property="dataSource" destination="-1" id="3FC-0b-FSt"/>
+                        <outlet property="delegate" destination="-1" id="5ag-aU-FY8"/>
                     </connections>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="dhn-LR-Rbl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="1dQ-LH-SAX"/>
-                <constraint firstAttribute="trailing" secondItem="dhn-LR-Rbl" secondAttribute="trailing" id="fRN-TS-WzO"/>
-                <constraint firstItem="dhn-LR-Rbl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="rgr-Cf-eTj"/>
-                <constraint firstAttribute="bottom" secondItem="dhn-LR-Rbl" secondAttribute="bottom" id="x1I-Qc-Xf8"/>
+                <constraint firstAttribute="bottom" secondItem="FhG-uu-eYd" secondAttribute="bottom" id="7gM-VR-JgD"/>
+                <constraint firstAttribute="trailing" secondItem="FhG-uu-eYd" secondAttribute="trailing" id="Eap-CQ-2vm"/>
+                <constraint firstItem="FhG-uu-eYd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="dtW-yZ-09v"/>
+                <constraint firstItem="FhG-uu-eYd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gCZ-mJ-Dc8"/>
             </constraints>
-            <point key="canvasLocation" x="214" y="328"/>
         </view>
     </objects>
 </document>

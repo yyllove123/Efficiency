@@ -57,3 +57,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+extension AppDelegate {
+    
+    func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
+        
+        return DocumentsImportManager.applicationOpenURL(url, options: options)
+    }
+    
+}
+
+
