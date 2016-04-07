@@ -58,10 +58,12 @@ class SelectFolderController: UIViewController, UIAlertViewDelegate {
     
     // MARK: - Method Response
     func closeItemPressed() {
-        self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
+        AppDelegate.changeToViewController(LockManager.lockController())
+//        self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func addFolderItemPressed() {
+        
         let alert = UIAlertView(title: "创建文件夹", message: "输入文件夹名", delegate: self, cancelButtonTitle: "取消" ,otherButtonTitles: "确定")
         alert.alertViewStyle = UIAlertViewStyle.PlainTextInput
         alert.show()
@@ -112,6 +114,7 @@ class SelectFolderController: UIViewController, UIAlertViewDelegate {
 //        self.navigationController?.pushViewController(PicturesDetailViewController(folder: object), animated: true)
         complete?(folder: object)
         
-        self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
+        AppDelegate.changeToViewController(LockManager.lockController())
+//        self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
     }
 }

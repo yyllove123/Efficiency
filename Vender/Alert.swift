@@ -17,5 +17,27 @@ struct Alert {
         UIAlertView(title: error.domain, message: error.localizedDescription, delegate: nil, cancelButtonTitle: "取消").show()
     }
     
-//    static func show
+    static func showAlert(title: String?, message: String?) {
+        
+    }
+    
+    static func showAlert(title: String?, message: String?, complete: (Int)?) {
+        
+    }
+    
+    static func showAlert(title: String?, message: String?, cancelButtonTitle: String?, complete: (alert: Alert, buttonIndex: Int)?, controller: UIViewController?, otherButtonTitles: String?...) {
+        
+    }
+    
+    static func showAlert(title: String?, message: String?, style: UIAlertViewStyle?, cancelButtonTitle: String?, complete: (alert: Alert, buttonIndex: Int)?, controller: UIViewController?, otherButtonTitles: String?...) {
+        
+    }
+    
+    static func showAlert(title: String?, message: String?, style: UIAlertViewStyle?, textFieldDefaultTexts: [String]?, cancelButtonTitle: String?, complete: (alert: Alert, buttonIndex: Int)?, controller: UIViewController?, otherButtonTitles: String?...) {
+        
+    }
+    
+    func textField(index: UInt) -> UITextField? {
+        return nil
+    }
 }

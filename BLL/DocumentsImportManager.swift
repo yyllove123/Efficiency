@@ -22,9 +22,8 @@ class DocumentsImportManager: NSObject {
                 let controller = SelectFolderController.createWithComplete({ (folder) in
                     DocumentsImportManager.saveFileURLToFolder(folder, fileURL: url)
                 })
-                if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
-                    delegate.window?.rootViewController?.presentViewController(controller, animated: true, completion: nil)
-                }
+                
+                AppDelegate.changeToViewController(controller)
             }
         }
         

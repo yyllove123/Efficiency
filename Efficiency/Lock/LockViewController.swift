@@ -46,13 +46,13 @@ class LockViewController: UIViewController {
             if LockData.havePassword() {
                 if LockData.checkPassword(passwordTextField.text!) {
                     passwordTextField.resignFirstResponder()
-                    self.dismissViewControllerAnimated(true, completion: nil)
+                    AppDelegate.changeToViewController(nil)
                 }
             }
             else {
                 LockData.setPassword(passwordTextField.text!)
                 passwordTextField.resignFirstResponder()
-                self.dismissViewControllerAnimated(true, completion: nil)
+                AppDelegate.changeToViewController(nil)
             }
         }
     }

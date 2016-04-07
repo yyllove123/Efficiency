@@ -12,7 +12,21 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    var splitViewController: UISplitViewController?
+    
 
+    static func changeToViewController(controller: UIViewController?) {
+        
+        if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+            if controller == nil {
+                appDelegate.window!.rootViewController = appDelegate.splitViewController
+            }
+            else {
+                appDelegate.window!.rootViewController = controller
+            }
+        }
+    }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -23,6 +37,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 splitViewController.delegate = masterViewController
             }
         }
+        
+        self.splitViewController = splitViewController;
         
         LockManager.applicationDidFinishLaunching(application)
         return true
