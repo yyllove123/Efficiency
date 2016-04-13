@@ -30,7 +30,14 @@ class SelectFolderController: UIViewController, UIAlertViewDelegate {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        viewModel.refreshDatas()
         
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
         viewModel.refreshDatas()
         
         self.title = "选择目录"
@@ -42,13 +49,10 @@ class SelectFolderController: UIViewController, UIAlertViewDelegate {
         
         let addFolderItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: #selector(SelectFolderController.addFolderItemPressed))
         self.navigationItem.rightBarButtonItem = addFolderItem
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        viewModel.refreshDatas()
+        
+        let segmentedControl = UISegmentedControl(items: ["图片", "视频", "图书"])
+        segmentedControl.addTarget(self, action: #selector(SelectFolderController.categoryChange(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        self.navigationItem.titleView = segmentedControl
     }
 
     override func didReceiveMemoryWarning() {
@@ -71,11 +75,26 @@ class SelectFolderController: UIViewController, UIAlertViewDelegate {
         
     }
     
+    func categoryChange(control: UISegmentedControl) {
+        if control.selectedSegmentIndex == 0 {
+            viewModel.type = .Pic
+        }
+        else if control.selectedSegmentIndex == 1 {
+            viewModel.type = .Movie
+        }
+        else if control.selectedSegmentIndex == 2 {
+            viewModel.type = DocumentFolderType.Book
+        }
+        
+        self.viewModel.refreshDatas()
+        self.tableView.reloadData()
+    }
+    
     // MARK: - Alert Delegate
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
         if buttonIndex == 1 {
             if let text = alertView.textFieldAtIndex(0)?.text{
-                DocumentsManager.createFolder(text)
+                DocumentsManager.createDocumentFolder(.Pic, name: text)
                 self.viewModel.refreshDatas()
                 self.tableView.reloadData()
             }

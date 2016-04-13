@@ -12,9 +12,10 @@ struct SelectFolderViewModel {
     
 //    var type: String = "pic"
     
-    var datas: [FolderModel] = DocumentsManager.queryAllPicFolderDatas()
+    var datas: [FolderModel] = DocumentsManager.queryAllFolderDatas(.Pic)
+    var type = DocumentFolderType.Pic
     
     mutating func refreshDatas() {
-        self.datas = DocumentsManager.queryAllPicFolderDatas()
+        self.datas = DocumentsManager.queryAllFolderDatas(type)
     }
 }

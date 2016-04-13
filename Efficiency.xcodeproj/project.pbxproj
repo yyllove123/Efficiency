@@ -45,6 +45,8 @@
 		E0C7CEE61CAC2142005A7942 /* PicturesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C7CEE41CAC2142005A7942 /* PicturesDetailViewController.swift */; };
 		E0C7CEE71CAC2142005A7942 /* PicturesDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0C7CEE51CAC2142005A7942 /* PicturesDetailViewController.xib */; };
 		E0C7CEE91CAC217B005A7942 /* PictureDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C7CEE81CAC217B005A7942 /* PictureDetailViewModel.swift */; };
+		E0ED599C1CBE8BEA0003108E /* MovieListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED599B1CBE8BEA0003108E /* MovieListController.swift */; };
+		E0ED599E1CBE984C0003108E /* MovieListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED599D1CBE984B0003108E /* MovieListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +106,8 @@
 		E0C7CEE41CAC2142005A7942 /* PicturesDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicturesDetailViewController.swift; sourceTree = "<group>"; };
 		E0C7CEE51CAC2142005A7942 /* PicturesDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PicturesDetailViewController.xib; sourceTree = "<group>"; };
 		E0C7CEE81CAC217B005A7942 /* PictureDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureDetailViewModel.swift; sourceTree = "<group>"; };
+		E0ED599B1CBE8BEA0003108E /* MovieListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieListController.swift; sourceTree = "<group>"; };
+		E0ED599D1CBE984B0003108E /* MovieListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +185,7 @@
 				E0C7CEDB1CAC187F005A7942 /* Lock */,
 				E0C7CE921CAC01DF005A7942 /* Master */,
 				E0C7CE8B1CAC0174005A7942 /* PicturesScan */,
+				E0ED599A1CBE8B9A0003108E /* MovieScan */,
 				E0A4B2951CAA872B001C81FC /* AppDelegate.swift */,
 				E0A4B29B1CAA872B001C81FC /* Main.storyboard */,
 				E0A4B29E1CAA872B001C81FC /* Assets.xcassets */,
@@ -286,6 +291,15 @@
 				E08868A21CB0CAE300128A66 /* LockViewController.xib */,
 			);
 			path = Lock;
+			sourceTree = "<group>";
+		};
+		E0ED599A1CBE8B9A0003108E /* MovieScan */ = {
+			isa = PBXGroup;
+			children = (
+				E0ED599B1CBE8BEA0003108E /* MovieListController.swift */,
+				E0ED599D1CBE984B0003108E /* MovieListViewModel.swift */,
+			);
+			path = MovieScan;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -440,7 +454,9 @@
 				E0C7CEDD1CAC189F005A7942 /* PicturesScanManager.swift in Sources */,
 				E0C7CEE61CAC2142005A7942 /* PicturesDetailViewController.swift in Sources */,
 				E0A4B2961CAA872B001C81FC /* AppDelegate.swift in Sources */,
+				E0ED599E1CBE984C0003108E /* MovieListViewModel.swift in Sources */,
 				E0C7CE941CAC01DF005A7942 /* MasterViewController.swift in Sources */,
+				E0ED599C1CBE8BEA0003108E /* MovieListController.swift in Sources */,
 				E08868B01CB0CCEC00128A66 /* LockData.swift in Sources */,
 				E08868A71CB0CC5300128A66 /* Crypto.swift in Sources */,
 				E0C7CEDF1CAC18CE005A7942 /* DocumentsManager.swift in Sources */,

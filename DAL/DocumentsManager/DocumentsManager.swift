@@ -12,7 +12,7 @@ import UIKit
 
 class DocumentsManager: NSObject {
     
-    class func queryAllPicFolderDatas() -> [FolderModel] {
+    class func queryAllFolderDatas(documentType: DocumentFolderType) -> [FolderModel] {
         // 本地所有图片的文件夹都以“pic_”开头
         
         var folders: [FolderModel] = []
@@ -21,19 +21,17 @@ class DocumentsManager: NSObject {
         let contents = try! NSFileManager.defaultManager().contentsOfDirectoryAtPath(documentsPath)
         
         for name in contents {
-            if name.hasPrefix("pic_") {
-                folders.append(FolderModel(path: documentsPath + "/" + name, name: (name as NSString).stringByReplacingOccurrencesOfString("pic_", withString: "")))
+            if name.hasPrefix(documentType.prefixStr()) {
+                folders.append(FolderModel(path: documentsPath + "/" + name, name: (name as NSString).stringByReplacingOccurrencesOfString(documentType.prefixStr(), withString: ""), type: documentType))
             }
         }
         
         return folders
     }
     
-    class func createFolder(name: String) -> FolderModel{
-        let folderPath = NSHomeDirectory() + "/Documents/" + "pic_\(name)"
-        
-       try! NSFileManager.defaultManager().createDirectoryAtPath(folderPath, withIntermediateDirectories: true, attributes: nil)
-        
-        return FolderModel(path: folderPath, name: name)
+    class func createDocumentFolder(documentType: DocumentFolderType, name: String) -> FolderModel {
+        let folderPath = NSHomeDirectory() + "/Documents/\(documentType.prefixStr())\(name)"
+        try! NSFileManager.defaultManager().createDirectoryAtPath(folderPath, withIntermediateDirectories: true, attributes: nil)
+        return FolderModel(path: folderPath, name: name, type: documentType)
     }
 }
