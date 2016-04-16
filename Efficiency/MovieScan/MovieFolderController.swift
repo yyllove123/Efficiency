@@ -1,17 +1,24 @@
 //
-//  MovieListController.swift
+//  MovieFolderController.swift
 //  Efficiency
 //
-//  Created by Yalin on 16/4/13.
+//  Created by Yalin on 16/4/16.
 //  Copyright © 2016年 Yalin. All rights reserved.
 //
 
 import UIKit
 
-class MovieListController: UITableViewController {
-
-    var viewModel = MovieListViewModel()
+class MovieFolderController: UITableViewController {
     
+    var viewModel: FolderModel?
+    var datas: [String] = []
+    
+    convenience init(folder: FolderModel) {
+        self.init()
+        self.viewModel = folder
+        datas = folder.contents()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,16 +28,9 @@ class MovieListController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        self.title = "视频浏览"
+        self.title = self.viewModel?.name
         
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "MovieListCell")
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        viewModel.refreshDatas()
-        tableView.reloadData()
+        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "MovieFolderCell")
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,25 +42,24 @@ class MovieListController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return viewModel.datas.count
+        return datas.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("MovieListCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("MovieFolderCell", forIndexPath: indexPath)
 
         // Configure the cell...
-        let object = viewModel.datas[indexPath.row]
-        cell.textLabel!.text = object.name
+        let object = datas[indexPath.row]
+        cell.textLabel!.text = object
 
         return cell
     }
     
-
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let object = viewModel.datas[indexPath.row]
-        self.navigationController?.pushViewController(MovieFolderController(folder:object), animated: true)
+        self.navigationController?.pushViewController(MovieDetailViewController(moviePath:viewModel!.path + "/" + datas[indexPath.row]), animated: true)
     }
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

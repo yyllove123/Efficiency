@@ -22,6 +22,17 @@ struct FolderModel {
         let atts = try! NSFileManager.defaultManager().attributesOfItemAtPath(path);
         self.date = atts[NSFileModificationDate] as! NSDate
     }
+    
+    func contents() -> [String] {
+        
+        do {
+            return try NSFileManager.defaultManager().contentsOfDirectoryAtPath(path)
+        }
+        catch let error as NSError {
+            NSLog("read contents fail: %@", error)
+            return []
+        }
+    }
 }
 
 enum DocumentFolderType {

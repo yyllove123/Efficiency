@@ -8,6 +8,10 @@
 
 import Foundation
 
-struct MovieListViewModl {
+struct MovieListViewModel {
+    var datas: [FolderModel] = DocumentsManager.queryAllFolderDatas(.Movie)
     
+    mutating func refreshDatas() {
+        self.datas = DocumentsManager.queryAllFolderDatas(.Movie)
+    }
 }

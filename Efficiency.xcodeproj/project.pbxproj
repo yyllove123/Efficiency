@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		E01FF4E41CB0D0BE008676B8 /* LockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01FF4E31CB0D0BE008676B8 /* LockManager.swift */; };
 		E0426D5D1CB54C2000B7F68B /* DocumentsImportManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0426D5C1CB54C2000B7F68B /* DocumentsImportManager.swift */; };
+		E0707ED61CC1D4570013D96B /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0707ED41CC1D4570013D96B /* MovieDetailViewController.swift */; };
+		E0707ED71CC1D4570013D96B /* MovieDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0707ED51CC1D4570013D96B /* MovieDetailViewController.xib */; };
+		E0707ED91CC1D4CA0013D96B /* MovieFolderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0707ED81CC1D4CA0013D96B /* MovieFolderController.swift */; };
 		E08868951CB0BADF00128A66 /* PictureDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C7CEE81CAC217B005A7942 /* PictureDetailViewModel.swift */; };
 		E08868961CB0BCA500128A66 /* FolderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C7CEE01CAC1925005A7942 /* FolderModel.swift */; };
 		E08868971CB0BCA500128A66 /* FileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C7CEE21CAC192E005A7942 /* FileModel.swift */; };
@@ -69,6 +72,9 @@
 /* Begin PBXFileReference section */
 		E01FF4E31CB0D0BE008676B8 /* LockManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LockManager.swift; sourceTree = "<group>"; };
 		E0426D5C1CB54C2000B7F68B /* DocumentsImportManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentsImportManager.swift; sourceTree = "<group>"; };
+		E0707ED41CC1D4570013D96B /* MovieDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
+		E0707ED51CC1D4570013D96B /* MovieDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieDetailViewController.xib; sourceTree = "<group>"; };
+		E0707ED81CC1D4CA0013D96B /* MovieFolderController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieFolderController.swift; sourceTree = "<group>"; };
 		E088689A1CB0C11D00128A66 /* PicDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicDetailCell.swift; sourceTree = "<group>"; };
 		E088689B1CB0C11D00128A66 /* PicDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PicDetailCell.xib; sourceTree = "<group>"; };
 		E088689E1CB0C64500128A66 /* PicModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicModel.swift; sourceTree = "<group>"; };
@@ -298,6 +304,9 @@
 			children = (
 				E0ED599B1CBE8BEA0003108E /* MovieListController.swift */,
 				E0ED599D1CBE984B0003108E /* MovieListViewModel.swift */,
+				E0707ED81CC1D4CA0013D96B /* MovieFolderController.swift */,
+				E0707ED41CC1D4570013D96B /* MovieDetailViewController.swift */,
+				E0707ED51CC1D4570013D96B /* MovieDetailViewController.xib */,
 			);
 			path = MovieScan;
 			sourceTree = "<group>";
@@ -406,6 +415,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0707ED71CC1D4570013D96B /* MovieDetailViewController.xib in Resources */,
 				E08868A41CB0CAE300128A66 /* LockViewController.xib in Resources */,
 				E0C7CE901CAC01A0005A7942 /* PicturesScanViewController.xib in Resources */,
 				E0A4B2A21CAA872B001C81FC /* LaunchScreen.storyboard in Resources */,
@@ -440,9 +450,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0C7CE971CAC02B4005A7942 /* MasterViewModel.swift in Sources */,
+				E0707ED91CC1D4CA0013D96B /* MovieFolderController.swift in Sources */,
 				E08E94121CB54E99002FF9EB /* SelectFolderController.swift in Sources */,
 				E0C7CEE31CAC192E005A7942 /* FileModel.swift in Sources */,
 				E0C7CEE11CAC1925005A7942 /* FolderModel.swift in Sources */,
+				E0707ED61CC1D4570013D96B /* MovieDetailViewController.swift in Sources */,
 				E0426D5D1CB54C2000B7F68B /* DocumentsImportManager.swift in Sources */,
 				E0C7CE8E1CAC01A0005A7942 /* PicturesScanViewController.swift in Sources */,
 				E08E94171CB5584B002FF9EB /* Alert.swift in Sources */,

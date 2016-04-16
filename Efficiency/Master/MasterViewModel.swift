@@ -11,7 +11,8 @@ import UIKit
 
 struct MasterViewModel {
     var controllers: [FunctionData] = [
-        FunctionData(controller: UINavigationController(rootViewController:PicturesScanViewController()), title: "图片浏览", detailInfo: nil)
+        FunctionData(controller: UINavigationController(rootViewController:PicturesScanViewController()), title: "图片浏览", detailInfo: nil),
+        FunctionData(controller: UINavigationController(rootViewController:MovieListController()), title: "视频浏览", detailInfo: nil)
     ]
 }
 
