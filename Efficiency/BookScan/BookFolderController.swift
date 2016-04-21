@@ -56,7 +56,7 @@ class BookFolderController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.navigationController?.pushViewController(MovieDetailViewController(moviePath:viewModel!.path + "/" + datas[indexPath.row]), animated: true)
+        self.navigationController?.pushViewController(BookDetailViewController(bookPath:viewModel!.path + "/" + datas[indexPath.row]), animated: true)
     }
 
     /*

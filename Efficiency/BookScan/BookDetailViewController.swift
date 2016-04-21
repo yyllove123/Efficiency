@@ -8,15 +8,22 @@
 
 import UIKit
 
-class BookDetailViewController: UIViewController {
+class BookDetailViewController: UIViewController, UIWebViewDelegate {
 
     var bookPath: String = ""
     @IBOutlet weak var webView: UIWebView!
+    
+    convenience init(bookPath: String) {
+        self.init(nibName: "BookDetailViewController", bundle: nil)
+        self.bookPath = bookPath
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        webView.scalesPageToFit = true
+        webView.loadRequest(NSURLRequest(URL: NSURL(fileURLWithPath: bookPath)))
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,4 +42,8 @@ class BookDetailViewController: UIViewController {
     }
     */
 
+    // MARK: - UIWebView Delegate
+    func webViewDidFinishLoad(webView: UIWebView) {
+//        webView.stringByEvaluatingJavaScriptFromString("document.body.style.zoom=0.5");
+    }
 }

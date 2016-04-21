@@ -24,6 +24,7 @@ class MovieDetailViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        webView.scalesPageToFit = true
         webView.loadRequest(NSURLRequest(URL: NSURL(fileURLWithPath: moviePath)))
     }
 
