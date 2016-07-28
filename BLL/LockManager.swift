@@ -10,27 +10,27 @@ import UIKit
 
 class LockManager: NSObject, UIApplicationDelegate {
 
-    static func applicationDidFinishLaunching(application: UIApplication) {
+    class func applicationDidFinishLaunching(application: UIApplication) {
         
-        dispatch_after(dispatch_time_t(0.3), dispatch_get_main_queue()) {
-            enterLockController()
-        }
-        
-    }
-    
-    static func applicationDidBecomeActive(application: UIApplication) {
+//        dispatch_after(dispatch_time_t(0.3), DispatchQueue.main) {
+//            enterLockController()
+//        }
         
     }
     
-    static func applicationWillResignActive(application: UIApplication) {
+    class func applicationDidBecomeActive(application: UIApplication) {
+        
+    }
+    
+    class func applicationWillResignActive(application: UIApplication) {
         self.enterLockController()
     }
     
-    static func applicationWillEnterForeground(application: UIApplication) {
+    class func applicationWillEnterForeground(application: UIApplication) {
         
     }
     
-    static func applicationDidEnterBackground(application: UIApplication) {
+    class func applicationDidEnterBackground(application: UIApplication) {
         //
         self.enterLockController()
     }
@@ -41,6 +41,6 @@ class LockManager: NSObject, UIApplicationDelegate {
     
     static func enterLockController() {
         
-        AppDelegate.changeToViewController(self.lockController())
+        AppDelegate.changeToViewController(controller: self.lockController())
     }
 }

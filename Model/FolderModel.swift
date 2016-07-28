@@ -19,14 +19,16 @@ struct FolderModel {
         self.path = path
         self.type = type
         
-        let atts = try! NSFileManager.defaultManager().attributesOfItemAtPath(path);
-        self.date = atts[NSFileModificationDate] as! NSDate
+        let atts = try! FileManager.default.attributesOfItem(atPath: path)
+        // Manager().attributesOfItemAtPath(path);
+        self.date = atts[FileAttributeKey.modificationDate] as! NSDate
     }
     
     func contents() -> [String] {
         
         do {
-            return try NSFileManager.defaultManager().contentsOfDirectoryAtPath(path)
+            return try FileManager.default.contentsOfDirectory(atPath: path)
+            // Manager().contentsOfDirectoryAtPath(path)
         }
         catch let error as NSError {
             NSLog("read contents fail: %@", error)

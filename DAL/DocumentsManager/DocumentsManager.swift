@@ -18,11 +18,11 @@ class DocumentsManager: NSObject {
         var folders: [FolderModel] = []
         
         let documentsPath = NSHomeDirectory() + "/Documents"
-        let contents = try! NSFileManager.defaultManager().contentsOfDirectoryAtPath(documentsPath)
+        let contents = try! FileManager.default.contentsOfDirectory(atPath: documentsPath)
         
         for name in contents {
             if name.hasPrefix(documentType.prefixStr()) {
-                folders.append(FolderModel(path: documentsPath + "/" + name, name: (name as NSString).stringByReplacingOccurrencesOfString(documentType.prefixStr(), withString: ""), type: documentType))
+                folders.append(FolderModel(path: documentsPath + "/" + name, name: (name as NSString).replacingOccurrences(of: documentType.prefixStr(), with: ""), type: documentType))
             }
         }
         
@@ -31,7 +31,7 @@ class DocumentsManager: NSObject {
     
     class func createDocumentFolder(documentType: DocumentFolderType, name: String) -> FolderModel {
         let folderPath = NSHomeDirectory() + "/Documents/\(documentType.prefixStr())\(name)"
-        try! NSFileManager.defaultManager().createDirectoryAtPath(folderPath, withIntermediateDirectories: true, attributes: nil)
+        try! FileManager.default.createDirectory(atPath: folderPath, withIntermediateDirectories: true, attributes: nil)
         return FolderModel(path: folderPath, name: name, type: documentType)
     }
 }

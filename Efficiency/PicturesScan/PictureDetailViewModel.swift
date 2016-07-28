@@ -20,8 +20,8 @@ struct PictureDetailViewModel {
         name = folder.name
         
         // 读取所有图片
-        var contents = try! NSFileManager.defaultManager().contentsOfDirectoryAtPath(folder.path)
-        contents = contents.sort()
+        var contents = try! FileManager.default.contentsOfDirectory(atPath: folder.path)
+        contents.sort()
         
         for path in contents {
             

@@ -53,6 +53,16 @@
 		E0C7CEE61CAC2142005A7942 /* PicturesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C7CEE41CAC2142005A7942 /* PicturesDetailViewController.swift */; };
 		E0C7CEE71CAC2142005A7942 /* PicturesDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0C7CEE51CAC2142005A7942 /* PicturesDetailViewController.xib */; };
 		E0C7CEE91CAC217B005A7942 /* PictureDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C7CEE81CAC217B005A7942 /* PictureDetailViewModel.swift */; };
+		E0D463F81D20FF7000050B17 /* ImportPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D463F61D20FF7000050B17 /* ImportPhotosViewController.swift */; };
+		E0D463F91D20FF7000050B17 /* ImportPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D463F61D20FF7000050B17 /* ImportPhotosViewController.swift */; };
+		E0D463FA1D20FF7000050B17 /* ImportPhotosViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0D463F71D20FF7000050B17 /* ImportPhotosViewController.xib */; };
+		E0D463FB1D20FF7000050B17 /* ImportPhotosViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0D463F71D20FF7000050B17 /* ImportPhotosViewController.xib */; };
+		E0D463FE1D212D4300050B17 /* MediaLibSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D463FC1D212D4300050B17 /* MediaLibSelectViewController.swift */; };
+		E0D463FF1D212D4300050B17 /* MediaLibSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D463FC1D212D4300050B17 /* MediaLibSelectViewController.swift */; };
+		E0D464001D212D4300050B17 /* MediaLibSelectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0D463FD1D212D4300050B17 /* MediaLibSelectViewController.xib */; };
+		E0D464011D212D4300050B17 /* MediaLibSelectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0D463FD1D212D4300050B17 /* MediaLibSelectViewController.xib */; };
+		E0D464041D224F4F00050B17 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0D464021D224F4F00050B17 /* Photos.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		E0D464051D224F4F00050B17 /* PhotosUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0D464031D224F4F00050B17 /* PhotosUI.framework */; };
 		E0ED599C1CBE8BEA0003108E /* MovieListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED599B1CBE8BEA0003108E /* MovieListController.swift */; };
 		E0ED599E1CBE984C0003108E /* MovieListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ED599D1CBE984B0003108E /* MovieListViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -122,6 +132,12 @@
 		E0C7CEE41CAC2142005A7942 /* PicturesDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicturesDetailViewController.swift; sourceTree = "<group>"; };
 		E0C7CEE51CAC2142005A7942 /* PicturesDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PicturesDetailViewController.xib; sourceTree = "<group>"; };
 		E0C7CEE81CAC217B005A7942 /* PictureDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureDetailViewModel.swift; sourceTree = "<group>"; };
+		E0D463F61D20FF7000050B17 /* ImportPhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportPhotosViewController.swift; sourceTree = "<group>"; };
+		E0D463F71D20FF7000050B17 /* ImportPhotosViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImportPhotosViewController.xib; sourceTree = "<group>"; };
+		E0D463FC1D212D4300050B17 /* MediaLibSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaLibSelectViewController.swift; sourceTree = "<group>"; };
+		E0D463FD1D212D4300050B17 /* MediaLibSelectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MediaLibSelectViewController.xib; sourceTree = "<group>"; };
+		E0D464021D224F4F00050B17 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		E0D464031D224F4F00050B17 /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
 		E0ED599B1CBE8BEA0003108E /* MovieListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieListController.swift; sourceTree = "<group>"; };
 		E0ED599D1CBE984B0003108E /* MovieListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -131,6 +147,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0D464041D224F4F00050B17 /* Photos.framework in Frameworks */,
+				E0D464051D224F4F00050B17 /* PhotosUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,6 +203,7 @@
 		E0A4B2891CAA872B001C81FC = {
 			isa = PBXGroup;
 			children = (
+				E0D464061D224F6A00050B17 /* Framework */,
 				E08868A51CB0CC2900128A66 /* Vender */,
 				E0C7CED61CAC14AB005A7942 /* DAL */,
 				E0C7CED81CAC185B005A7942 /* Model */,
@@ -209,6 +228,7 @@
 		E0A4B2941CAA872B001C81FC /* Efficiency */ = {
 			isa = PBXGroup;
 			children = (
+				E0D463F51D20FF5A00050B17 /* ImportPhotos */,
 				E08E940F1CB54E85002FF9EB /* SelectedFolder */,
 				E0C7CEDB1CAC187F005A7942 /* Lock */,
 				E0C7CE921CAC01DF005A7942 /* Master */,
@@ -322,6 +342,26 @@
 			path = Lock;
 			sourceTree = "<group>";
 		};
+		E0D463F51D20FF5A00050B17 /* ImportPhotos */ = {
+			isa = PBXGroup;
+			children = (
+				E0D463F61D20FF7000050B17 /* ImportPhotosViewController.swift */,
+				E0D463F71D20FF7000050B17 /* ImportPhotosViewController.xib */,
+				E0D463FC1D212D4300050B17 /* MediaLibSelectViewController.swift */,
+				E0D463FD1D212D4300050B17 /* MediaLibSelectViewController.xib */,
+			);
+			path = ImportPhotos;
+			sourceTree = "<group>";
+		};
+		E0D464061D224F6A00050B17 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				E0D464021D224F4F00050B17 /* Photos.framework */,
+				E0D464031D224F4F00050B17 /* PhotosUI.framework */,
+			);
+			name = Framework;
+			sourceTree = "<group>";
+		};
 		E0ED599A1CBE8B9A0003108E /* MovieScan */ = {
 			isa = PBXGroup;
 			children = (
@@ -402,6 +442,8 @@
 				TargetAttributes = {
 					E0A4B2911CAA872B001C81FC = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 932M9W363W;
+						DevelopmentTeamName = "yalin yang (Personal Team)";
 						LastSwiftMigration = 0800;
 					};
 					E0A4B2A71CAA872B001C81FC = {
@@ -412,6 +454,7 @@
 					E0A4B2B21CAA872B001C81FC = {
 						CreatedOnToolsVersion = 7.2.1;
 						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
 						TestTargetID = E0A4B2911CAA872B001C81FC;
 					};
 				};
@@ -445,11 +488,13 @@
 				E0707ED71CC1D4570013D96B /* MovieDetailViewController.xib in Resources */,
 				E08868A41CB0CAE300128A66 /* LockViewController.xib in Resources */,
 				E0C7CE901CAC01A0005A7942 /* PicturesScanViewController.xib in Resources */,
+				E0D463FA1D20FF7000050B17 /* ImportPhotosViewController.xib in Resources */,
 				E0A4B2A21CAA872B001C81FC /* LaunchScreen.storyboard in Resources */,
 				E08E94131CB54E99002FF9EB /* SelectFolderController.xib in Resources */,
 				E0C7CEE71CAC2142005A7942 /* PicturesDetailViewController.xib in Resources */,
 				E0A4B29F1CAA872B001C81FC /* Assets.xcassets in Resources */,
 				E0A4B29D1CAA872B001C81FC /* Main.storyboard in Resources */,
+				E0D464001D212D4300050B17 /* MediaLibSelectViewController.xib in Resources */,
 				E088689D1CB0C11D00128A66 /* PicDetailCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -465,6 +510,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0D463FB1D20FF7000050B17 /* ImportPhotosViewController.xib in Resources */,
+				E0D464011D212D4300050B17 /* MediaLibSelectViewController.xib in Resources */,
 				E0C7CE911CAC01A0005A7942 /* PicturesScanViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -487,6 +534,7 @@
 				E0426D5D1CB54C2000B7F68B /* DocumentsImportManager.swift in Sources */,
 				E0C7CE8E1CAC01A0005A7942 /* PicturesScanViewController.swift in Sources */,
 				E08E94171CB5584B002FF9EB /* Alert.swift in Sources */,
+				E0D463FE1D212D4300050B17 /* MediaLibSelectViewController.swift in Sources */,
 				E01FF4E41CB0D0BE008676B8 /* LockManager.swift in Sources */,
 				E0707EDE1CC1E2C80013D96B /* BookScanViewModel.swift in Sources */,
 				E0C7CED51CAC123F005A7942 /* PicturesScanViewModel.swift in Sources */,
@@ -496,6 +544,7 @@
 				E0C7CEDD1CAC189F005A7942 /* PicturesScanManager.swift in Sources */,
 				E0C7CEE61CAC2142005A7942 /* PicturesDetailViewController.swift in Sources */,
 				E0A4B2961CAA872B001C81FC /* AppDelegate.swift in Sources */,
+				E0D463F81D20FF7000050B17 /* ImportPhotosViewController.swift in Sources */,
 				E0ED599E1CBE984C0003108E /* MovieListViewModel.swift in Sources */,
 				E0C7CE941CAC01DF005A7942 /* MasterViewController.swift in Sources */,
 				E0ED599C1CBE8BEA0003108E /* MovieListController.swift in Sources */,
@@ -526,6 +575,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0D463FF1D212D4300050B17 /* MediaLibSelectViewController.swift in Sources */,
+				E0D463F91D20FF7000050B17 /* ImportPhotosViewController.swift in Sources */,
 				E0A4B2B81CAA872B001C81FC /* EfficiencyUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -713,6 +764,7 @@
 		E0A4B2C31CAA872B001C81FC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = EfficiencyUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = yalin.EfficiencyUITests;
@@ -726,6 +778,7 @@
 		E0A4B2C41CAA872B001C81FC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = EfficiencyUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = yalin.EfficiencyUITests;

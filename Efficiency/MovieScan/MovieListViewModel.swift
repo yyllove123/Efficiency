@@ -9,9 +9,9 @@
 import Foundation
 
 struct MovieListViewModel {
-    var datas: [FolderModel] = DocumentsManager.queryAllFolderDatas(.Movie)
+    var datas: [FolderModel] = DocumentsManager.queryAllFolderDatas(documentType: .Movie)
     
     mutating func refreshDatas() {
-        self.datas = DocumentsManager.queryAllFolderDatas(.Movie)
+        self.datas = DocumentsManager.queryAllFolderDatas(documentType: .Movie)
     }
 }

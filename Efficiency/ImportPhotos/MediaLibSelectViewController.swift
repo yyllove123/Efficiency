@@ -1,37 +1,32 @@
 //
-//  MovieDetailViewController.swift
+//  MediaLibSelectViewController.swift
 //  Efficiency
 //
-//  Created by Yalin on 16/4/16.
+//  Created by Yalin on 16/6/27.
 //  Copyright © 2016年 Yalin. All rights reserved.
 //
 
 import UIKit
-import MediaPlayer
-import AVKit
+import Photos
+import PhotosUI
 
-class MovieDetailViewController: UIViewController {
+class MediaLibSelectViewController: UIViewController {
     
-    var moviePath: String = ""
-    @IBOutlet weak var webView: UIWebView!
-    
-    convenience init(moviePath: String) {
-        self.init(nibName: "MovieDetailViewController", bundle: nil)
-        self.moviePath = moviePath
+    class func show(types: Int, complete: () -> Void) {
+        
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        webView.scalesPageToFit = true
-        webView.loadRequest(URLRequest(url: URL(fileURLWithPath: moviePath) as URL))
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 
     /*
     // MARK: - Navigation

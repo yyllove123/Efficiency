@@ -18,7 +18,7 @@ class PicturesScanViewController: UIViewController , UITableViewDataSource, UITa
         self.init(nibName: "PicturesScanViewController", bundle: nil)
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         viewModel.refreshDatas()
@@ -30,7 +30,7 @@ class PicturesScanViewController: UIViewController , UITableViewDataSource, UITa
         // Do any additional setup after loading the view.
         self.title = "图片浏览"
         
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "PicturesScanCell")
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "PicturesScanCell")
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,20 +51,19 @@ class PicturesScanViewController: UIViewController , UITableViewDataSource, UITa
     */
 
     // MARK: - TableView DataSource
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.datas.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("PicturesScanCell", forIndexPath: indexPath)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PicturesScanCell", for: indexPath as IndexPath)
         
         let object = viewModel.datas[indexPath.row]
         cell.textLabel!.text = object.name
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let object = viewModel.datas[indexPath.row]
         self.navigationController?.pushViewController(PicturesDetailViewController(folder: object), animated: true)
     }

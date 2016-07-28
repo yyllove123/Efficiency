@@ -23,10 +23,10 @@ class BookScanController: UITableViewController {
         
         self.title = "文档浏览"
         
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "BookScanCell")
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "BookScanCell")
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         viewModel.refreshDatas()
@@ -40,23 +40,22 @@ class BookScanController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return viewModel.datas.count
     }
 
-    
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("BookScanCell", forIndexPath: indexPath)
-
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BookScanCell", for: indexPath as IndexPath)
+        
         // Configure the cell...
         let object = viewModel.datas[indexPath.row]
         cell.textLabel!.text = object.name
-
+        
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let object = viewModel.datas[indexPath.row]
         self.navigationController?.pushViewController(BookFolderController(folder:object), animated: true)
     }

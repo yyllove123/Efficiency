@@ -11,7 +11,7 @@ import UIKit
 struct LockData {
     
     static func havePassword() -> Bool {
-        if let password = NSUserDefaults.standardUserDefaults().objectForKey("password") as? String {
+        if let password = UserDefaults.standard.object(forKey: "password") as? String {
             if password != "" {
                 return true
             }
@@ -20,11 +20,12 @@ struct LockData {
     }
     
     static func setPassword(password: String) {
-        NSUserDefaults.standardUserDefaults().setValue(password.md5Value, forKey: "password")
+        UserDefaults.standard.set(password.md5Value, forKey: "password")
+        // setValue(password.md5Value, forKey: "password")
     }
     
     static func checkPassword(password: String) -> Bool {
-        if let oldMd5Password = NSUserDefaults.standardUserDefaults().objectForKey("password") as? String {
+        if let oldMd5Password = UserDefaults.standard.object(forKey: "password") as? String {
             if password.md5Value == oldMd5Password {
                 return true
             }

@@ -23,10 +23,10 @@ class MovieListController: UITableViewController {
         
         self.title = "视频浏览"
         
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "MovieListCell")
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "MovieListCell")
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         viewModel.refreshDatas()
@@ -40,14 +40,14 @@ class MovieListController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return viewModel.datas.count
     }
 
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("MovieListCell", forIndexPath: indexPath)
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieListCell", for: indexPath as IndexPath)
 
         // Configure the cell...
         let object = viewModel.datas[indexPath.row]
@@ -57,7 +57,7 @@ class MovieListController: UITableViewController {
     }
     
 
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let object = viewModel.datas[indexPath.row]
         self.navigationController?.pushViewController(MovieFolderController(folder:object), animated: true)
     }

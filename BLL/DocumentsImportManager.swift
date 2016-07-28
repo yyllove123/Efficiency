@@ -16,14 +16,14 @@ class DocumentsImportManager: NSObject {
         
         print(" url: \(url)\n annotation: \(annotation)\n sourceApplication: \(sourceApplication) \n openInPlace: \(openInPlace)")
         
-        if url.fileURL {
+        if url.isFileURL {
             if url.lastPathComponent!.hasSuffix("jpg") ||
                 url.lastPathComponent!.hasSuffix("png")  {
-                let controller = SelectFolderController.createWithComplete({ (folder) in
-                    DocumentsImportManager.saveFileURLToFolder(folder, fileURL: url)
+                let controller = SelectFolderController.createWithComplete(complete: { (folder) in
+                    DocumentsImportManager.saveFileURLToFolder(folder: folder, fileURL: url)
                 })
                 
-                AppDelegate.changeToViewController(controller)
+                AppDelegate.changeToViewController(controller: controller)
             }
         }
         
@@ -35,9 +35,13 @@ class DocumentsImportManager: NSObject {
         let newFilePath = folder.path + "/" + fileURL.lastPathComponent!
         
         do {
-            try NSFileManager.defaultManager().moveItemAtURL(fileURL, toURL: NSURL(fileURLWithPath: newFilePath))
+            try FileManager.default.moveItem(at: fileURL as URL, to: NSURL(fileURLWithPath: newFilePath) as URL)
         }catch let error as NSError {
             NSLog("保存文件失败 :%@", error.localizedDescription)
         }
+    }
+    
+    class func checkPause() {
+        
     }
 }

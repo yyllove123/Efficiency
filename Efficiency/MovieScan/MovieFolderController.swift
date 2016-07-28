@@ -30,7 +30,7 @@ class MovieFolderController: UITableViewController {
         
         self.title = self.viewModel?.name
         
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "MovieFolderCell")
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "MovieFolderCell")
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,14 +40,14 @@ class MovieFolderController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return datas.count
     }
 
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("MovieFolderCell", forIndexPath: indexPath)
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieFolderCell", for: indexPath as IndexPath)
 
         // Configure the cell...
         let object = datas[indexPath.row]
@@ -56,7 +56,7 @@ class MovieFolderController: UITableViewController {
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.navigationController?.pushViewController(MovieDetailViewController(moviePath:viewModel!.path + "/" + datas[indexPath.row]), animated: true)
     }
 

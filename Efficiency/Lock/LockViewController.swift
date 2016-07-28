@@ -16,7 +16,7 @@ class LockViewController: UIViewController {
         self.init(nibName: "LockViewController", bundle: nil)
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         if LockData.havePassword() {
@@ -44,15 +44,15 @@ class LockViewController: UIViewController {
     @IBAction func sureButtonPressed(sender: AnyObject) {
         if passwordTextField.text != nil {
             if LockData.havePassword() {
-                if LockData.checkPassword(passwordTextField.text!) {
+                if LockData.checkPassword(password: passwordTextField.text!) {
                     passwordTextField.resignFirstResponder()
-                    AppDelegate.changeToViewController(nil)
+                    AppDelegate.changeToViewController(controller: nil)
                 }
             }
             else {
-                LockData.setPassword(passwordTextField.text!)
+                LockData.setPassword(password: passwordTextField.text!)
                 passwordTextField.resignFirstResponder()
-                AppDelegate.changeToViewController(nil)
+                AppDelegate.changeToViewController(controller: nil)
             }
         }
     }

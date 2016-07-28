@@ -10,9 +10,9 @@ import Foundation
 import UIKit
 
 struct PicturesScanViewModel {
-    var datas: [FolderModel] = DocumentsManager.queryAllFolderDatas(.Pic)
+    var datas: [FolderModel] = DocumentsManager.queryAllFolderDatas(documentType: .Pic)
     
     mutating func refreshDatas() {
-        self.datas = DocumentsManager.queryAllFolderDatas(.Pic)
+        self.datas = DocumentsManager.queryAllFolderDatas(documentType: .Pic)
     }
 }

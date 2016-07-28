@@ -29,7 +29,7 @@ class BookFolderController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         self.title = self.viewModel?.name
         
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "BookFolderCell")
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "BookFolderCell")
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,14 +39,14 @@ class BookFolderController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return datas.count
     }
     
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("BookFolderCell", forIndexPath: indexPath)
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BookFolderCell", for: indexPath as IndexPath)
         
         // Configure the cell...
         let object = datas[indexPath.row]
@@ -55,7 +55,7 @@ class BookFolderController: UITableViewController {
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.navigationController?.pushViewController(BookDetailViewController(bookPath:viewModel!.path + "/" + datas[indexPath.row]), animated: true)
     }
 

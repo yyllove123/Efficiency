@@ -15,13 +15,19 @@ struct PicModel {
     init?(path: String) {
         if let image = UIImage(contentsOfFile: path) {
             self.path = path
-            let screenScale = UIScreen.mainScreen().scale
-            let newSize = PicModel.scaleHeightToTargetSize(image.size, targetSize: CGSizeMake(UIScreen .mainScreen().bounds.size.width, 10000))
+            let screenScale = UIScreen.main().scale
+            
+            
+            let newSize = PicModel.scaleHeightToTargetSize(originSize: image.size, targetSize: CGSize(width: UIScreen.main().bounds.size.width, height: 10000))
             height = newSize.height
             
-            if image.size.width > UIScreen.mainScreen().bounds.size.width * screenScale {
-                let newImage = PicModel.scaleImageToTargetSize(image, targetSize: CGSizeMake(newSize.width * screenScale, newSize.height * screenScale))
-                try! UIImageJPEGRepresentation(newImage, 1)?.writeToFile(path, options: NSDataWritingOptions.AtomicWrite)
+            if image.size.width > UIScreen.main().bounds.size.width * screenScale {
+                
+                let newImage = PicModel.scaleImageToTargetSize(image: image, targetSize: CGSize(width: newSize.width * screenScale, height: newSize.height * screenScale))
+                
+                
+                try! UIImageJPEGRepresentation(newImage, 1)?.write(to: URL(fileURLWithPath: path), options: NSData.WritingOptions.atomicWrite)
+//                try! (UIImageJPEGRepresentation(newImage, 1) as? NSData).write(toFile: path, options: NSData.WritingOptions.atomicWrite)
             }
         }
         else {
@@ -35,7 +41,7 @@ struct PicModel {
         var scaledWidth = targetSize.width
         var scaledHeight = targetSize.height
         
-        if CGSizeEqualToSize(originSize, targetSize) == false {
+        if originSize.equalTo(targetSize) == false {
             let widthFactor = targetSize.width / originSize.width
             let heightFactor = targetSize.height / originSize.height
             
@@ -49,15 +55,16 @@ struct PicModel {
             scaledHeight = originSize.height * scaleFactor
         }
         
-        return CGSizeMake(scaledWidth, scaledHeight)
+        return CGSize(width: scaledWidth, height: scaledHeight)
     }
     
     static func scaleImageToTargetSize(image: UIImage, targetSize: CGSize) -> UIImage {
         // Create a graphics image context
         UIGraphicsBeginImageContext(targetSize);
         
+        
         // Tell the old image to draw in this new context, with the desired new size
-        image.drawInRect(CGRectMake(0, 0, targetSize.width, targetSize.height))
+        image.draw(in: CGRect(x: 0, y: 0, width: targetSize.width, height: targetSize.height))
         
         // Get the new image from the context
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
@@ -65,44 +72,6 @@ struct PicModel {
         // End the context
         UIGraphicsEndImageContext()
         
-        return newImage
+        return newImage!
     }
 }
-
-/*
- - (UIImage*)imageWithImageSimple:(UIImage*)image scaledToSize:(CGSize)newSize
- 
- {
- 
- // Create a graphics image context
- 
- UIGraphicsBeginImageContext(newSize);
- 
- 
- 
- // Tell the old image to draw in this new context, with the desired
- 
- // new size
- 
- [image drawInRect:CGRectMake(,,newSize.width,newSize.height)];
- 
- 
- 
- // Get the new image from the context
- 
- UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
- 
- 
- 
- // End the context
- 
- UIGraphicsEndImageContext();
- 
- 
- 
- // Return the new image.
- 
- return newImage;
- 
- }
- */

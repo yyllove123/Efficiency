@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PhotosUI
 
 class MasterViewController: UITableViewController , UISplitViewControllerDelegate{
 
@@ -19,16 +20,26 @@ class MasterViewController: UITableViewController , UISplitViewControllerDelegat
         // Do any additional setup after loading the view, typically from a nib.
         
         self.title = "Efficiency";
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(MasterViewController.addItemPressed))
     }
 
-    override func viewWillAppear(animated: Bool) {
-        self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
+    override func viewWillAppear(_ animated: Bool) {
+        self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
         super.viewWillAppear(animated)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - Response Method
+    func addItemPressed() {
+//        let controller = PHContentEditingController()
+//        
+//        
+//        self.presentViewController(controller, animated: true, completion: nil)
     }
     
     // MARK: - Split view
@@ -45,19 +56,19 @@ class MasterViewController: UITableViewController , UISplitViewControllerDelegat
     }
 
     // MARK: - Table View
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.controllers.count
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath as IndexPath)
 
         let object = viewModel.controllers[indexPath.row] 
         cell.textLabel!.text = object.title
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let controllerData = viewModel.controllers[indexPath.row]
         
         showDetail = true

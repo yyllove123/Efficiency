@@ -23,7 +23,7 @@ class BookDetailViewController: UIViewController, UIWebViewDelegate {
 
         // Do any additional setup after loading the view.
         webView.scalesPageToFit = true
-        webView.loadRequest(NSURLRequest(URL: NSURL(fileURLWithPath: bookPath)))
+        webView.loadRequest(URLRequest(url: NSURL(fileURLWithPath: bookPath) as URL) as URLRequest)
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,7 +43,7 @@ class BookDetailViewController: UIViewController, UIWebViewDelegate {
     */
 
     // MARK: - UIWebView Delegate
-    func webViewDidFinishLoad(webView: UIWebView) {
+    func webViewDidFinishLoad(_ webView: UIWebView) {
 //        webView.stringByEvaluatingJavaScriptFromString("document.body.style.zoom=0.5");
     }
 }

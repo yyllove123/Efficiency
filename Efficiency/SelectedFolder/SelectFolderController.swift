@@ -28,7 +28,7 @@ class SelectFolderController: UIViewController, UIAlertViewDelegate {
         self.init(nibName: "SelectFolderController", bundle: nil)
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.refreshDatas()
         
@@ -42,16 +42,16 @@ class SelectFolderController: UIViewController, UIAlertViewDelegate {
         
         self.title = "选择目录"
         
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "SelectFolderCell")
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "SelectFolderCell")
         
-        let closeItem = UIBarButtonItem(title: "关闭", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(SelectFolderController.closeItemPressed))
+        let closeItem = UIBarButtonItem(title: "关闭", style: UIBarButtonItemStyle.plain, target: self, action: #selector(SelectFolderController.closeItemPressed))
         self.navigationItem.leftBarButtonItem = closeItem
         
-        let addFolderItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: #selector(SelectFolderController.addFolderItemPressed))
+        let addFolderItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(SelectFolderController.addFolderItemPressed))
         self.navigationItem.rightBarButtonItem = addFolderItem
         
         let segmentedControl = UISegmentedControl(items: ["图片", "视频", "图书"])
-        segmentedControl.addTarget(self, action: #selector(SelectFolderController.categoryChange(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        segmentedControl.addTarget(self, action: #selector(SelectFolderController.categoryChange(control:)), for: .valueChanged)
         self.navigationItem.titleView = segmentedControl
     }
 
@@ -62,17 +62,34 @@ class SelectFolderController: UIViewController, UIAlertViewDelegate {
     
     // MARK: - Method Response
     func closeItemPressed() {
-        AppDelegate.changeToViewController(LockManager.lockController())
+        AppDelegate.changeToViewController(controller: LockManager.lockController())
 //        self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func addFolderItemPressed() {
         
-        let alert = UIAlertView(title: "创建文件夹", message: "输入文件夹名", delegate: self, cancelButtonTitle: "取消" ,otherButtonTitles: "确定")
-        alert.alertViewStyle = UIAlertViewStyle.PlainTextInput
-        alert.show()
         
+        let alertController = UIAlertController(title: "创建文件夹", message: "输入文件夹名", preferredStyle: UIAlertControllerStyle.alert)
         
+        alertController.addTextField { (textField: UITextField) in
+            
+        }
+        
+        alertController.addAction(UIAlertAction(title: "确定", style: UIAlertActionStyle.default, handler: { [unowned self] (action: UIAlertAction) in
+            
+            if let text = alertController.textFields?.first?.text{
+                DocumentsManager.createDocumentFolder(documentType: .Pic, name: text)
+                self.viewModel.refreshDatas()
+                self.tableView.reloadData()
+            }
+            else {
+                Alert.showErrorAlert(title: "文件名不能为空", message: nil)
+            }
+        }))
+        
+        alertController.addAction(UIAlertAction(title: "取消", style: UIAlertActionStyle.cancel, handler: nil))
+        
+        self.present(alertController, animated: true, completion: nil)
     }
     
     func categoryChange(control: UISegmentedControl) {
@@ -88,20 +105,6 @@ class SelectFolderController: UIViewController, UIAlertViewDelegate {
         
         self.viewModel.refreshDatas()
         self.tableView.reloadData()
-    }
-    
-    // MARK: - Alert Delegate
-    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
-        if buttonIndex == 1 {
-            if let text = alertView.textFieldAtIndex(0)?.text{
-                DocumentsManager.createDocumentFolder(.Pic, name: text)
-                self.viewModel.refreshDatas()
-                self.tableView.reloadData()
-            }
-            else {
-                Alert.showErrorAlert("文件名不能为空", message: nil)
-            }
-        }
     }
 
     /*
@@ -120,7 +123,7 @@ class SelectFolderController: UIViewController, UIAlertViewDelegate {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("SelectFolderCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SelectFolderCell", for: indexPath as IndexPath)
         
         let object = viewModel.datas[indexPath.row]
         cell.textLabel!.text = object.name
@@ -133,7 +136,7 @@ class SelectFolderController: UIViewController, UIAlertViewDelegate {
 //        self.navigationController?.pushViewController(PicturesDetailViewController(folder: object), animated: true)
         complete?(folder: object)
         
-        AppDelegate.changeToViewController(LockManager.lockController())
+        AppDelegate.changeToViewController(controller: LockManager.lockController())
 //        self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
     }
 }

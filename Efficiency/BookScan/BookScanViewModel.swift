@@ -9,9 +9,9 @@
 import UIKit
 
 struct BookScanViewModel {
-    var datas: [FolderModel] = DocumentsManager.queryAllFolderDatas(.Book)
+    var datas: [FolderModel] = DocumentsManager.queryAllFolderDatas(documentType: .Book)
     
     mutating func refreshDatas() {
-        self.datas = DocumentsManager.queryAllFolderDatas(.Book)
+        self.datas = DocumentsManager.queryAllFolderDatas(documentType: .Book)
     }
 }

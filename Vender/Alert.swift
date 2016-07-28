@@ -10,44 +10,44 @@ import UIKit
 
 struct Alert {
     static func showErrorAlert(title: String?, message: String?) {
-        Alert.showAlert(title, message: message)
+        Alert.showAlert(title: title, message: message)
     }
     
     static func showError(error: NSError) {
-        Alert.showAlert(error.domain, message: error.localizedDescription)
+        Alert.showAlert(title: error.domain, message: error.localizedDescription)
     }
     
     static func showAlert(title: String?, message: String?) {
-        Alert.showAlert(title, message: message, complete: nil)
+        Alert.showAlert(title: title, message: message, complete: nil)
     }
     
     static func showAlert(title: String?, message: String?, complete: ((Int) -> Void)?) {
-        Alert.showAlert(title, message: message, cancelButtonTitle: "取消", complete: complete, controller: nil, otherButtonTitles: nil)
+        showAlert(title: title, message: message, cancelButtonTitle: "取消", complete: complete, controller: nil, otherButtonTitles: nil)
     }
     
     static func showAlert(title: String?, message: String?, cancelButtonTitle: String?, complete: ((Int) -> Void)?, controller: UIViewController?, otherButtonTitles: String?...) {
         
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         
         if cancelButtonTitle != nil {
-            let cancelAction = UIAlertAction(title: cancelButtonTitle, style: UIAlertActionStyle.Cancel, handler: { (action: UIAlertAction) in
+            let cancelAction = UIAlertAction(title: cancelButtonTitle, style: UIAlertActionStyle.cancel, handler: { (action: UIAlertAction) in
                 complete?(0)
             })
             alertController.addAction(cancelAction)
         }
         
         for i in 0 ..< otherButtonTitles.count {
-            let action = UIAlertAction(title: otherButtonTitles[i], style: UIAlertActionStyle.Default, handler: { (action: UIAlertAction) in
+            let action = UIAlertAction(title: otherButtonTitles[i], style: UIAlertActionStyle.default, handler: { (action: UIAlertAction) in
                 complete?(i + 1)
             })
             alertController.addAction(action)
         }
         
         if controller != nil {
-            controller?.presentViewController(alertController, animated: true, completion: nil)
+            controller?.present(alertController, animated: true, completion: nil)
         }
         else {
-            (UIApplication.sharedApplication().delegate as? AppDelegate)?.window?.rootViewController?.presentViewController(alertController, animated: true, completion: nil)
+            (UIApplication.shared().delegate as? AppDelegate)?.window?.rootViewController?.present(alertController, animated: true, completion: nil)
         }
     }
 }

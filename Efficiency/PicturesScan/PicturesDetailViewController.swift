@@ -26,7 +26,7 @@ class PicturesDetailViewController: UIViewController, UITableViewDataSource, UIT
         self.title = viewModel?.name
         
         let cellNib = UINib(nibName: "PicDetailCell", bundle: nil)
-        self.tableView.registerNib(cellNib, forCellReuseIdentifier: "PicDetailCell")
+        self.tableView.register(cellNib, forCellReuseIdentifier: "PicDetailCell")
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,12 +45,12 @@ class PicturesDetailViewController: UIViewController, UITableViewDataSource, UIT
     */
 
     // MARK: - TableView DataSource Delegate
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel!.contents.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("PicDetailCell", forIndexPath: indexPath) as! PicDetailCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PicDetailCell", for: indexPath) as! PicDetailCell
         
         cell.picPath = viewModel!.contents[indexPath.row].path
         
