@@ -26,20 +26,6 @@ class PicDetailCell: UITableViewCell {
                     }
                 }
             }
-            
-////            dispatch_async
-//            dispatch_async(dispatch_queue_create("loadImage", DISPATCH_QUEUE_CONCURRENT)) { [unowned self] in
-//                if nil != self.picPath  {
-//                    if let image = UIImage(contentsOfFile: self.picPath!) {
-//                        dispatch_async(dispatch_get_main_queue(), { [unowned self] in
-////                            print(self.picImageView)
-//                            self.setPicImage(image)
-////                            self.picImageView.image = image
-//                        })
-//                    }
-//                }
-//                
-//            }
         }
     }
     @IBOutlet weak var picImageView: UIImageView!

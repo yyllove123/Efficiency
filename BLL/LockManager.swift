@@ -12,10 +12,10 @@ class LockManager: NSObject {
 
     class func applicationDidFinishLaunching(application: UIApplication) {
         
-//        dispatch_after(dispatch_time_t(0.3), DispatchQueue.main) {
-//            enterLockController()
-//        }
-        
+        let dispatchTime: DispatchTime = DispatchTime.now() + Double(Int64(0.1 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+        DispatchQueue.main.after(when: dispatchTime) { 
+            enterLockController()
+        }
     }
     
     class func applicationDidBecomeActive(application: UIApplication) {
