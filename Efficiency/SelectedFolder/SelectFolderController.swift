@@ -78,7 +78,7 @@ class SelectFolderController: UIViewController, UIAlertViewDelegate {
         alertController.addAction(UIAlertAction(title: "确定", style: UIAlertActionStyle.default, handler: { [unowned self] (action: UIAlertAction) in
             
             if let text = alertController.textFields?.first?.text{
-                DocumentsManager.createDocumentFolder(documentType: .Pic, name: text)
+                DocumentsManager.createDocumentFolder(documentType: DocumentFolderType.Pic, name: text)
                 self.viewModel.refreshDatas()
                 self.tableView.reloadData()
             }

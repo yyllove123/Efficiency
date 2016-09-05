@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LockManager: NSObject, UIApplicationDelegate {
+class LockManager: NSObject {
 
     class func applicationDidFinishLaunching(application: UIApplication) {
         

@@ -7,13 +7,27 @@
 //
 
 import UIKit
+import Photos
 
 class ImportPhotosViewController: UIViewController {
 
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    @IBOutlet weak var collectionViewFlowLayout: UICollectionViewFlowLayout!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        let cellWidth = UIScreen.main().bounds.size.width / 3
+        collectionViewFlowLayout.itemSize = CGSize(width: cellWidth, height: cellWidth)
+        
+        let collections = PHAssetCollection.fetchAssetCollections(with: PHAssetCollectionType.album, subtype: PHAssetCollectionSubtype.any, options: nil)
+        
+//        collections.enumerateObjects { (asset: PHAssetCollection, index: Int, b: UnsafeMutablePointer<ObjCBool>) in
+//            
+//        }
     }
 
     override func didReceiveMemoryWarning() {

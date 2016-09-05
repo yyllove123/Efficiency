@@ -45,6 +45,8 @@ class PicturesDetailViewController: UIViewController, UITableViewDataSource, UIT
     */
 
     // MARK: - TableView DataSource Delegate
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel!.contents.count
     }
@@ -57,7 +59,7 @@ class PicturesDetailViewController: UIViewController, UITableViewDataSource, UIT
         return cell
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return viewModel!.contents[indexPath.row].height
     }
 }
