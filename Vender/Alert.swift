@@ -47,7 +47,7 @@ struct Alert {
             controller?.present(alertController, animated: true, completion: nil)
         }
         else {
-            (UIApplication.shared().delegate as? AppDelegate)?.window?.rootViewController?.present(alertController, animated: true, completion: nil)
+            (UIApplication.shared.delegate as? AppDelegate)?.window?.rootViewController?.present(alertController, animated: true, completion: nil)
         }
     }
 }

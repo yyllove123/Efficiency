@@ -13,7 +13,7 @@ class LockManager: NSObject {
     class func applicationDidFinishLaunching(application: UIApplication) {
         
         let dispatchTime: DispatchTime = DispatchTime.now() + Double(Int64(0.1 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
-        DispatchQueue.main.after(when: dispatchTime) { 
+        DispatchQueue.main.asyncAfter(deadline: dispatchTime) {
             enterLockController()
         }
     }

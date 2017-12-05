@@ -36,7 +36,7 @@ class MasterViewController: UITableViewController , UISplitViewControllerDelegat
     }
     
     // MARK: - Response Method
-    func addItemPressed() {
+    @objc func addItemPressed() {
 //        let controller = PHContentEditingController()
 //        
 //        

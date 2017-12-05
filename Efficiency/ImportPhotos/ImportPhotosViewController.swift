@@ -20,7 +20,7 @@ class ImportPhotosViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        let cellWidth = UIScreen.main().bounds.size.width / 3
+        let cellWidth = UIScreen.main.bounds.size.width / 3
         collectionViewFlowLayout.itemSize = CGSize(width: cellWidth, height: cellWidth)
         
         let collections = PHAssetCollection.fetchAssetCollections(with: PHAssetCollectionType.album, subtype: PHAssetCollectionSubtype.any, options: nil)

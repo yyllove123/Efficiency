@@ -17,8 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 
     static func changeToViewController(controller: UIViewController?) {
-        
-        if let appDelegate = UIApplication.shared().delegate as? AppDelegate {
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             if controller == nil {
                 appDelegate.window!.rootViewController = appDelegate.splitViewController
             }

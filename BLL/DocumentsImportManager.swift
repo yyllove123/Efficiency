@@ -10,11 +10,12 @@ import UIKit
 
 class DocumentsImportManager: NSObject {
     class func applicationOpenURL(url: NSURL, options: [String : AnyObject]) -> Bool {
-        let annotation = options[UIApplicationOpenURLOptionsAnnotationKey]
-        let sourceApplication = options[UIApplicationOpenURLOptionsSourceApplicationKey]
-        let openInPlace = options[UIApplicationOpenURLOptionsOpenInPlaceKey]
         
-        print(" url: \(url)\n annotation: \(annotation)\n sourceApplication: \(sourceApplication) \n openInPlace: \(openInPlace)")
+//        let annotation = options[UIApplicationOpenURLOptionsAnnotationKey]
+//        let sourceApplication = options[UIApplicationOpenURLOptionsSourceApplicationKey]
+//        let openInPlace = options[UIApplicationOpenURLOptionsOpenInPlaceKey]
+//
+//        print(" url: \(url)\n annotation: \(annotation)\n sourceApplication: \(sourceApplication) \n openInPlace: \(openInPlace)")
         
         if url.isFileURL {
             if url.lastPathComponent!.hasSuffix("jpg") ||

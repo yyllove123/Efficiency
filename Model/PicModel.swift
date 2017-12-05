@@ -15,13 +15,13 @@ struct PicModel {
     init?(path: String) {
         if let image = UIImage(contentsOfFile: path) {
             self.path = path
-            let screenScale = UIScreen.main().scale
+            let screenScale = UIScreen.main.scale
             
             
-            let newSize = PicModel.scaleHeightToTargetSize(originSize: image.size, targetSize: CGSize(width: UIScreen.main().bounds.size.width, height: 10000))
+            let newSize = PicModel.scaleHeightToTargetSize(originSize: image.size, targetSize: CGSize(width: UIScreen.main.bounds.size.width, height: 10000))
             height = newSize.height
             
-            if image.size.width > UIScreen.main().bounds.size.width * screenScale {
+            if image.size.width > UIScreen.main.bounds.size.width * screenScale {
                 
                 let newImage = PicModel.scaleImageToTargetSize(image: image, targetSize: CGSize(width: newSize.width * screenScale, height: newSize.height * screenScale))
                 

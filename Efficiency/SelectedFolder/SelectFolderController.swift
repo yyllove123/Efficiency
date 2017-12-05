@@ -11,11 +11,11 @@ import UIKit
 class SelectFolderController: UIViewController, UIAlertViewDelegate {
     
     var viewModel = SelectFolderViewModel()
-    var complete: ((folder: FolderModel) -> Void)?
+    var complete: ((_ folder: FolderModel) -> Void)?
 
     @IBOutlet weak var tableView: UITableView!
     
-    class func createWithComplete(complete: (folder: FolderModel) -> Void) -> UINavigationController {
+    class func createWithComplete(complete: @escaping (_ folder: FolderModel) -> Void) -> UINavigationController {
         let controller = SelectFolderController()
         controller.complete = complete
         
@@ -61,12 +61,12 @@ class SelectFolderController: UIViewController, UIAlertViewDelegate {
     }
     
     // MARK: - Method Response
-    func closeItemPressed() {
+    @objc func closeItemPressed() {
         AppDelegate.changeToViewController(controller: LockManager.lockController())
 //        self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func addFolderItemPressed() {
+    @objc func addFolderItemPressed() {
         
         
         let alertController = UIAlertController(title: "创建文件夹", message: "输入文件夹名", preferredStyle: UIAlertControllerStyle.alert)
@@ -92,7 +92,7 @@ class SelectFolderController: UIViewController, UIAlertViewDelegate {
         self.present(alertController, animated: true, completion: nil)
     }
     
-    func categoryChange(control: UISegmentedControl) {
+    @objc func categoryChange(control: UISegmentedControl) {
         if control.selectedSegmentIndex == 0 {
             viewModel.type = .Pic
         }
@@ -134,7 +134,7 @@ class SelectFolderController: UIViewController, UIAlertViewDelegate {
         
         let object = viewModel.datas[indexPath.row]
 //        self.navigationController?.pushViewController(PicturesDetailViewController(folder: object), animated: true)
-        complete?(folder: object)
+        complete?(object)
         
         AppDelegate.changeToViewController(controller: LockManager.lockController())
 //        self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
