@@ -29,6 +29,7 @@ class DocumentsManager: NSObject {
         return folders
     }
     
+    @discardableResult
     class func createDocumentFolder(documentType: DocumentFolderType, name: String) -> FolderModel {
         let folderPath = NSHomeDirectory() + "/Documents/\(documentType.prefixStr())\(name)"
         try! FileManager.default.createDirectory(atPath: folderPath, withIntermediateDirectories: true, attributes: nil)
