@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LocalAuthentication
 
 class LockViewController: UIViewController {
 
@@ -14,6 +15,10 @@ class LockViewController: UIViewController {
     
     convenience init() {
         self.init(nibName: "LockViewController", bundle: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -24,15 +29,18 @@ class LockViewController: UIViewController {
         }
         else {
             passwordTextField.placeholder = "没有设置密码,按回车确定密码"
+            passwordTextField.becomeFirstResponder()
         }
-        
-        passwordTextField.becomeFirstResponder()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(enterForegroundNoti), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
+        
+        faceIdCheck()
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,6 +48,36 @@ class LockViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @objc func enterForegroundNoti() {
+        faceIdCheck()
+    }
+    
+    func faceIdCheck() {
+        
+        var error: NSError? = nil
+        
+        let authenticationContext = LAContext()
+        if authenticationContext.canEvaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            authenticationContext.evaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, localizedReason: "输入自己", reply: { [unowned self] (success, err) in
+                
+                DispatchQueue.main.async { [unowned self] in
+                    if success {
+                        self.passwordTextField.resignFirstResponder()
+                        AppDelegate.changeToViewController(controller: nil)
+                        
+                        authenticationContext.invalidate()
+                    }
+                    else {
+                        self.passwordTextField.becomeFirstResponder()
+                    }
+                }
+            })
+        }
+        else {
+            passwordTextField.becomeFirstResponder()
+        }
+        
+    }
 
     @IBAction func sureButtonPressed(sender: AnyObject) {
         if passwordTextField.text != nil {

@@ -35,8 +35,9 @@ class LockManager: NSObject {
         self.enterLockController()
     }
     
+    static private let plockController = LockViewController()
     static func lockController() -> UIViewController {
-        return LockViewController()
+        return plockController
     }
     
     static func enterLockController() {
