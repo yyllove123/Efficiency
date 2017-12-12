@@ -63,7 +63,7 @@ class LockViewController: UIViewController {
                 DispatchQueue.main.async { [unowned self] in
                     if success {
                         self.passwordTextField.resignFirstResponder()
-                        AppDelegate.changeToViewController(controller: nil)
+                        self.dismiss(animated: true, completion: nil)
                         
                         authenticationContext.invalidate()
                     }
@@ -84,13 +84,13 @@ class LockViewController: UIViewController {
             if LockData.havePassword() {
                 if LockData.checkPassword(password: passwordTextField.text!) {
                     passwordTextField.resignFirstResponder()
-                    AppDelegate.changeToViewController(controller: nil)
+                    self.dismiss(animated: true, completion: nil)
                 }
             }
             else {
                 LockData.setPassword(password: passwordTextField.text!)
                 passwordTextField.resignFirstResponder()
-                AppDelegate.changeToViewController(controller: nil)
+                self.dismiss(animated: true, completion: nil)
             }
         }
     }

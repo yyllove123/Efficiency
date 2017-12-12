@@ -12,10 +12,7 @@ class LockManager: NSObject {
 
     class func applicationDidFinishLaunching(application: UIApplication) {
         
-        let dispatchTime: DispatchTime = DispatchTime.now() + Double(Int64(0.1 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
-        DispatchQueue.main.asyncAfter(deadline: dispatchTime) {
-            enterLockController()
-        }
+        enterLockController()
     }
     
     class func applicationDidBecomeActive(application: UIApplication) {
@@ -23,7 +20,7 @@ class LockManager: NSObject {
     }
     
     class func applicationWillResignActive(application: UIApplication) {
-        self.enterLockController()
+//        self.enterLockController()
     }
     
     class func applicationWillEnterForeground(application: UIApplication) {
@@ -42,6 +39,16 @@ class LockManager: NSObject {
     
     static func enterLockController() {
         
-        AppDelegate.changeToViewController(controller: self.lockController())
+        let controller = self.lockController()
+        if !(controller.isViewLoaded && controller.view.window != nil) {
+            
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(1 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)) {
+                UIApplication.shared.keyWindow?.rootViewController?.present(self.lockController(), animated: true, completion: nil)
+            }
+        }
+        
+        
+        
+//        AppDelegate.changeToViewController(controller: self.lockController())
     }
 }

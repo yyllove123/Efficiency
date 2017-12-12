@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SelectFolderController: UIViewController, UIAlertViewDelegate {
+class SelectFolderController: UIViewController, UIAlertViewDelegate, UITableViewDataSource, UITableViewDelegate {
     
     var viewModel = SelectFolderViewModel()
     var complete: ((_ folder: FolderModel) -> Void)?
@@ -118,11 +118,11 @@ class SelectFolderController: UIViewController, UIAlertViewDelegate {
     */
 
     // MARK: - TableView DataSource
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.datas.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SelectFolderCell", for: indexPath as IndexPath)
         
         let object = viewModel.datas[indexPath.row]
@@ -130,7 +130,7 @@ class SelectFolderController: UIViewController, UIAlertViewDelegate {
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let object = viewModel.datas[indexPath.row]
 //        self.navigationController?.pushViewController(PicturesDetailViewController(folder: object), animated: true)

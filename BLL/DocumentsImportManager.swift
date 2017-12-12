@@ -9,17 +9,17 @@
 import UIKit
 
 class DocumentsImportManager: NSObject {
-    class func applicationOpenURL(url: NSURL, options: [String : AnyObject]) -> Bool {
+    class func applicationOpenURL(url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         
 //        let annotation = options[UIApplicationOpenURLOptionsAnnotationKey]
 //        let sourceApplication = options[UIApplicationOpenURLOptionsSourceApplicationKey]
 //        let openInPlace = options[UIApplicationOpenURLOptionsOpenInPlaceKey]
 //
 //        print(" url: \(url)\n annotation: \(annotation)\n sourceApplication: \(sourceApplication) \n openInPlace: \(openInPlace)")
-        
         if url.isFileURL {
-            if url.lastPathComponent!.hasSuffix("jpg") ||
-                url.lastPathComponent!.hasSuffix("png")  {
+            if url.lastPathComponent.hasSuffix("jpg") ||
+                url.lastPathComponent.hasSuffix("png") || url.lastPathComponent.hasSuffix("JPG") ||
+                url.lastPathComponent.hasSuffix("PNG")  {
                 let controller = SelectFolderController.createWithComplete(complete: { (folder) in
                     DocumentsImportManager.saveFileURLToFolder(folder: folder, fileURL: url)
                 })
@@ -31,9 +31,9 @@ class DocumentsImportManager: NSObject {
         return true
     }
     
-    class func saveFileURLToFolder(folder: FolderModel, fileURL: NSURL) {
+    class func saveFileURLToFolder(folder: FolderModel, fileURL: URL) {
         
-        let newFilePath = folder.path + "/" + fileURL.lastPathComponent!
+        let newFilePath = folder.path + "/" + fileURL.lastPathComponent
         
         do {
             try FileManager.default.moveItem(at: fileURL as URL, to: NSURL(fileURLWithPath: newFilePath) as URL)
