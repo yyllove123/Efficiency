@@ -46,6 +46,10 @@
 		E08041E21FE5484D00C0F836 /* LockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08041BB1FE5484D00C0F836 /* LockManager.swift */; };
 		E08041E31FE5484D00C0F836 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08041BD1FE5484D00C0F836 /* Alert.swift */; };
 		E08041E41FE5484D00C0F836 /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08041BE1FE5484D00C0F836 /* Crypto.swift */; };
+		E08041EB1FE54E5200C0F836 /* PhotosUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E08041E91FE54E5200C0F836 /* PhotosUI.framework */; };
+		E08041EC1FE54E5200C0F836 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E08041EA1FE54E5200C0F836 /* Photos.framework */; };
+		E08041EE1FE54E6400C0F836 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E08041ED1FE54E6400C0F836 /* LocalAuthentication.framework */; };
+		E08041F01FE54ED700C0F836 /* CommonProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08041EF1FE54ED700C0F836 /* CommonProtocol.swift */; };
 		E0A4B2961CAA872B001C81FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A4B2951CAA872B001C81FC /* AppDelegate.swift */; };
 		E0A4B29D1CAA872B001C81FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0A4B29B1CAA872B001C81FC /* Main.storyboard */; };
 		E0A4B29F1CAA872B001C81FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0A4B29E1CAA872B001C81FC /* Assets.xcassets */; };
@@ -68,9 +72,6 @@
 /* Begin PBXFileReference section */
 		4ECFAA1C8DA485BAA7E767F5 /* Pods_Efficiency.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Efficiency.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C9687163776BC8CC859F31B /* Pods-Efficiency.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Efficiency.release.xcconfig"; path = "Pods/Target Support Files/Pods-Efficiency/Pods-Efficiency.release.xcconfig"; sourceTree = "<group>"; };
-		657DD1251FD6397B00754D62 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
-		657DD1281FD639A700754D62 /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
-		657DD1291FD639A700754D62 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		7459856C2055B73793776931 /* Pods-Efficiency.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Efficiency.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Efficiency/Pods-Efficiency.debug.xcconfig"; sourceTree = "<group>"; };
 		E080418F1FE5484D00C0F836 /* MovieListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieListController.swift; sourceTree = "<group>"; };
 		E08041901FE5484D00C0F836 /* MovieListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieListViewModel.swift; sourceTree = "<group>"; };
@@ -111,6 +112,10 @@
 		E08041BD1FE5484D00C0F836 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		E08041BE1FE5484D00C0F836 /* Crypto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Crypto.swift; sourceTree = "<group>"; };
 		E08041E51FE54C3A00C0F836 /* Efficiency-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Efficiency-Bridging-Header.h"; sourceTree = "<group>"; };
+		E08041E91FE54E5200C0F836 /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
+		E08041EA1FE54E5200C0F836 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		E08041ED1FE54E6400C0F836 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
+		E08041EF1FE54ED700C0F836 /* CommonProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonProtocol.swift; sourceTree = "<group>"; };
 		E0A4B2921CAA872B001C81FC /* Efficiency.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Efficiency.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0A4B2951CAA872B001C81FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0A4B29C1CAA872B001C81FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -124,6 +129,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E08041EE1FE54E6400C0F836 /* LocalAuthentication.framework in Frameworks */,
+				E08041EB1FE54E5200C0F836 /* PhotosUI.framework in Frameworks */,
+				E08041EC1FE54E5200C0F836 /* Photos.framework in Frameworks */,
 				AD70E4AD665852710A30EC77 /* Pods_Efficiency.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -134,9 +142,9 @@
 		657DD1241FD6397B00754D62 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				657DD1291FD639A700754D62 /* Photos.framework */,
-				657DD1281FD639A700754D62 /* PhotosUI.framework */,
-				657DD1251FD6397B00754D62 /* LocalAuthentication.framework */,
+				E08041ED1FE54E6400C0F836 /* LocalAuthentication.framework */,
+				E08041EA1FE54E5200C0F836 /* Photos.framework */,
+				E08041E91FE54E5200C0F836 /* PhotosUI.framework */,
 				4ECFAA1C8DA485BAA7E767F5 /* Pods_Efficiency.framework */,
 			);
 			name = Frameworks;
@@ -256,6 +264,7 @@
 		E08041B61FE5484D00C0F836 /* CommonProtocol */ = {
 			isa = PBXGroup;
 			children = (
+				E08041EF1FE54ED700C0F836 /* CommonProtocol.swift */,
 			);
 			path = CommonProtocol;
 			sourceTree = "<group>";
@@ -483,6 +492,7 @@
 				E08041DB1FE5484D00C0F836 /* PicturesDetailViewController.swift in Sources */,
 				E08041E31FE5484D00C0F836 /* Alert.swift in Sources */,
 				E08041D71FE5484D00C0F836 /* PicturesScanViewController.swift in Sources */,
+				E08041F01FE54ED700C0F836 /* CommonProtocol.swift in Sources */,
 				E08041D31FE5484D00C0F836 /* DocumentsManager.swift in Sources */,
 				E08041CD1FE5484D00C0F836 /* SelectFolderController.swift in Sources */,
 				E08041D91FE5484D00C0F836 /* PictureDetailViewModel.swift in Sources */,
@@ -631,7 +641,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -655,7 +665,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
