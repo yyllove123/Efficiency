@@ -59,6 +59,7 @@
 		E0A4B29D1CAA872B001C81FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0A4B29B1CAA872B001C81FC /* Main.storyboard */; };
 		E0A4B29F1CAA872B001C81FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0A4B29E1CAA872B001C81FC /* Assets.xcassets */; };
 		E0A4B2A21CAA872B001C81FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0A4B2A01CAA872B001C81FC /* LaunchScreen.storyboard */; };
+		E0A752372028925A00EEE497 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0A752362028925A00EEE497 /* CoreFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -132,6 +133,7 @@
 		E0A4B29E1CAA872B001C81FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E0A4B2A11CAA872B001C81FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E0A4B2A31CAA872B001C81FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E0A752362028925A00EEE497 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0A752372028925A00EEE497 /* CoreFoundation.framework in Frameworks */,
 				E08041EE1FE54E6400C0F836 /* LocalAuthentication.framework in Frameworks */,
 				E08041EB1FE54E5200C0F836 /* PhotosUI.framework in Frameworks */,
 				E08041EC1FE54E5200C0F836 /* Photos.framework in Frameworks */,
@@ -152,6 +155,7 @@
 		657DD1241FD6397B00754D62 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E0A752362028925A00EEE497 /* CoreFoundation.framework */,
 				E08041ED1FE54E6400C0F836 /* LocalAuthentication.framework */,
 				E08041EA1FE54E5200C0F836 /* Photos.framework */,
 				E08041E91FE54E5200C0F836 /* PhotosUI.framework */,

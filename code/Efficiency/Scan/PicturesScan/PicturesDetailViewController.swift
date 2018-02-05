@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreFoundation
 
 class PicturesDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -38,11 +39,11 @@ class PicturesDetailViewController: UIViewController, UITableViewDataSource, UIT
         let cellNib = UINib(nibName: "PicDetailCell", bundle: nil)
         self.tableView.register(cellNib, forCellReuseIdentifier: "PicDetailCell")
         
-        self.runloopTimer = Timer(timeInterval: 0.001, target: self, selector: #selector(PicturesDetailViewController.runloopCall), userInfo: nil, repeats: true)
+//        self.runloopTimer = Timer(timeInterval: 0.001, target: self, selector: #selector(PicturesDetailViewController.runloopCall), userInfo: nil, repeats: true)
 //        RunLoop.current.add(self.runloopTimer!, forMode: RunLoopMode.commonModes)
+        
+        addRunloopOberver()
     }
-    
-    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -83,6 +84,26 @@ class PicturesDetailViewController: UIViewController, UITableViewDataSource, UIT
 
 extension PicturesDetailViewController {
     
+    func addRunloopOberver() {
+        
+        let runloop = CFRunLoopGetCurrent()
+        var runloopObserver: CFRunLoopObserver? = nil;
+        
+        // https://stackoverflow.com/questions/31895449/using-unsafemutablepointer-and-cfrunloopobservercontext-in-swift-2
+        UnsafeMutableRawPointer
+        var content = CFRunLoopObserverContext(version: 0, info: &self, retain: nil, release: nil, copyDescription: nil)
+        
+        runloopObserver = CFRunLoopObserverCreate(nil, CFRunLoopActivity.beforeWaiting.rawValue, true, 0, { (oberver, activity, info) in
+            
+            
+            print("\(info)")
+            
+        }, &content)
+        
+        CFRunLoopAddObserver(runloop, runloopObserver, CFRunLoopMode.commonModes)
+        //   gxx      CFRelease(runloopObserver)
+    }
+    
     @objc func runloopCall() {
         print("111");
     }
@@ -100,3 +121,11 @@ extension PicturesDetailViewController {
         }
     }
 }
+
+//void callBack() {
+//    if let block = self.runloopTasks.first as? ()->Void {
+//
+//    }
+//    print("come on")
+//}
+
