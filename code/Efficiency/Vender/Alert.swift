@@ -47,8 +47,35 @@ struct Alert {
             controller?.present(alertController, animated: true, completion: nil)
         }
         else {
-            (UIApplication.shared.delegate as? AppDelegate)?.window?.rootViewController?.present(alertController, animated: true, completion: nil)
+            currentDisplayController()?.present(alertController, animated: true, completion: nil)
         }
+    }
+    
+    private static func currentDisplayController() -> UIViewController? {
+        
+        //获得当前活动窗口的根视图
+        var vc = UIApplication.shared.keyWindow?.rootViewController
+        
+        while true {
+            
+            //根据不同的页面切换方式，逐步取得最上层的viewController
+            if let tabbarController = vc as? UITabBarController {
+                vc = tabbarController.selectedViewController
+            }
+            
+            if let navigationController = vc as? UINavigationController {
+                vc = navigationController.visibleViewController
+            }
+            
+            if vc?.presentedViewController != nil {
+                vc = vc!.presentedViewController
+            }
+            else {
+                break
+            }
+        }
+        
+        return vc
     }
 }
 
