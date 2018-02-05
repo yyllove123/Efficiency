@@ -232,14 +232,14 @@
 		E08041AA1FE5484D00C0F836 /* PicturesScan */ = {
 			isa = PBXGroup;
 			children = (
+				E08041AF1FE5484D00C0F836 /* PictureDetailViewModel.swift */,
 				E08041AB1FE5484D00C0F836 /* PicturesScanViewModel.swift */,
 				E08041AC1FE5484D00C0F836 /* PicturesScanViewController.xib */,
-				E08041AD1FE5484D00C0F836 /* PicturesScanViewController.swift */,
-				E08041AE1FE5484D00C0F836 /* PicDetailCell.xib */,
-				E08041AF1FE5484D00C0F836 /* PictureDetailViewModel.swift */,
-				E08041B01FE5484D00C0F836 /* PicturesDetailViewController.xib */,
 				E08041B11FE5484D00C0F836 /* PicturesDetailViewController.swift */,
+				E08041AD1FE5484D00C0F836 /* PicturesScanViewController.swift */,
+				E08041B01FE5484D00C0F836 /* PicturesDetailViewController.xib */,
 				E08041B21FE5484D00C0F836 /* PicDetailCell.swift */,
+				E08041AE1FE5484D00C0F836 /* PicDetailCell.xib */,
 			);
 			path = PicturesScan;
 			sourceTree = "<group>";

@@ -12,7 +12,17 @@ class PicturesDetailViewController: UIViewController, UITableViewDataSource, UIT
     
     var viewModel: PictureDetailViewModel?
     
+    var runloopTasks: [Any] = []
+    var runloopMaxTasksNumber: Int = 10
+    var runloopBlock: (() -> Void)?
+    var runloopTimer: Timer?
+    
     @IBOutlet weak var tableView: UITableView!
+    
+    deinit {
+        print("123")
+//        self.runloopTimer?.invalidate()
+    }
     
     convenience init(folder: FolderModel) {
         self.init(nibName: "PicturesDetailViewController", bundle: nil)
@@ -27,7 +37,12 @@ class PicturesDetailViewController: UIViewController, UITableViewDataSource, UIT
         
         let cellNib = UINib(nibName: "PicDetailCell", bundle: nil)
         self.tableView.register(cellNib, forCellReuseIdentifier: "PicDetailCell")
+        
+        self.runloopTimer = Timer(timeInterval: 0.001, target: self, selector: #selector(PicturesDetailViewController.runloopCall), userInfo: nil, repeats: true)
+//        RunLoop.current.add(self.runloopTimer!, forMode: RunLoopMode.commonModes)
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -54,12 +69,34 @@ class PicturesDetailViewController: UIViewController, UITableViewDataSource, UIT
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PicDetailCell", for: indexPath) as! PicDetailCell
         
-        cell.picPath = viewModel!.contents[indexPath.row].path
+        addTasks(cell: cell, picPath: viewModel!.contents[indexPath.row].path)
+        
+//        cell.picPath = viewModel!.contents[indexPath.row].path
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return viewModel!.contents[indexPath.row].height
+    }
+}
+
+extension PicturesDetailViewController {
+    
+    @objc func runloopCall() {
+        print("111");
+    }
+    
+    func addTasks(cell: PicDetailCell, picPath: String?) {
+        
+        self.runloopTasks.append({
+            if let image = UIImage(contentsOfFile: picPath!) {
+                cell.setPicImage(image: image)
+            }
+        })
+
+        if runloopTasks.count > runloopMaxTasksNumber {
+            runloopTasks.remove(at: 0)
+        }
     }
 }
