@@ -50,6 +50,11 @@
 		E08041EC1FE54E5200C0F836 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E08041EA1FE54E5200C0F836 /* Photos.framework */; };
 		E08041EE1FE54E6400C0F836 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E08041ED1FE54E6400C0F836 /* LocalAuthentication.framework */; };
 		E08041F01FE54ED700C0F836 /* CommonProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08041EF1FE54ED700C0F836 /* CommonProtocol.swift */; };
+		E08041F71FE5503000C0F836 /* LotusootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08041F21FE5503000C0F836 /* LotusootCoordinator.swift */; };
+		E08041F81FE5503000C0F836 /* Lotusoot.py in Resources */ = {isa = PBXBuildFile; fileRef = E08041F31FE5503000C0F836 /* Lotusoot.py */; };
+		E08041F91FE5503000C0F836 /* LotusootURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08041F41FE5503000C0F836 /* LotusootURL.swift */; };
+		E08041FA1FE5503000C0F836 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08041F51FE5503000C0F836 /* Extension.swift */; };
+		E08041FB1FE5503000C0F836 /* LotusootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08041F61FE5503000C0F836 /* LotusootRouter.swift */; };
 		E0A4B2961CAA872B001C81FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A4B2951CAA872B001C81FC /* AppDelegate.swift */; };
 		E0A4B29D1CAA872B001C81FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0A4B29B1CAA872B001C81FC /* Main.storyboard */; };
 		E0A4B29F1CAA872B001C81FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0A4B29E1CAA872B001C81FC /* Assets.xcassets */; };
@@ -116,6 +121,11 @@
 		E08041EA1FE54E5200C0F836 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		E08041ED1FE54E6400C0F836 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		E08041EF1FE54ED700C0F836 /* CommonProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonProtocol.swift; sourceTree = "<group>"; };
+		E08041F21FE5503000C0F836 /* LotusootCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LotusootCoordinator.swift; sourceTree = "<group>"; };
+		E08041F31FE5503000C0F836 /* Lotusoot.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = Lotusoot.py; sourceTree = "<group>"; };
+		E08041F41FE5503000C0F836 /* LotusootURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LotusootURL.swift; sourceTree = "<group>"; };
+		E08041F51FE5503000C0F836 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		E08041F61FE5503000C0F836 /* LotusootRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LotusootRouter.swift; sourceTree = "<group>"; };
 		E0A4B2921CAA872B001C81FC /* Efficiency.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Efficiency.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0A4B2951CAA872B001C81FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0A4B29C1CAA872B001C81FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -289,9 +299,23 @@
 			path = Vender;
 			sourceTree = "<group>";
 		};
+		E08041F11FE5503000C0F836 /* Lotusoot */ = {
+			isa = PBXGroup;
+			children = (
+				E08041F21FE5503000C0F836 /* LotusootCoordinator.swift */,
+				E08041F31FE5503000C0F836 /* Lotusoot.py */,
+				E08041F41FE5503000C0F836 /* LotusootURL.swift */,
+				E08041F51FE5503000C0F836 /* Extension.swift */,
+				E08041F61FE5503000C0F836 /* LotusootRouter.swift */,
+			);
+			name = Lotusoot;
+			path = ../Lotusoot/Lotusoot;
+			sourceTree = "<group>";
+		};
 		E0A4B2891CAA872B001C81FC = {
 			isa = PBXGroup;
 			children = (
+				E08041F11FE5503000C0F836 /* Lotusoot */,
 				E0A4B2941CAA872B001C81FC /* Efficiency */,
 				E0A4B2931CAA872B001C81FC /* Products */,
 				657DD1241FD6397B00754D62 /* Frameworks */,
@@ -394,6 +418,7 @@
 				E08041C31FE5484D00C0F836 /* MovieDetailViewController.xib in Resources */,
 				E08041CC1FE5484D00C0F836 /* ImportPhotosViewController.xib in Resources */,
 				E08041E01FE5484D00C0F836 /* LockViewController.xib in Resources */,
+				E08041F81FE5503000C0F836 /* Lotusoot.py in Resources */,
 				E08041CF1FE5484D00C0F836 /* SelectFolderController.xib in Resources */,
 				E08041DA1FE5484D00C0F836 /* PicturesDetailViewController.xib in Resources */,
 				E0A4B2A21CAA872B001C81FC /* LaunchScreen.storyboard in Resources */,
@@ -467,11 +492,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E08041BF1FE5484D00C0F836 /* MovieListController.swift in Sources */,
+				E08041F71FE5503000C0F836 /* LotusootCoordinator.swift in Sources */,
 				E08041DF1FE5484D00C0F836 /* LockViewController.swift in Sources */,
 				E08041D11FE5484D00C0F836 /* PicModel.swift in Sources */,
 				E08041DC1FE5484D00C0F836 /* PicDetailCell.swift in Sources */,
 				E08041C21FE5484D00C0F836 /* MovieDetailViewController.swift in Sources */,
 				E08041D41FE5484D00C0F836 /* DocumentsImportManager.swift in Sources */,
+				E08041F91FE5503000C0F836 /* LotusootURL.swift in Sources */,
 				E0A4B2961CAA872B001C81FC /* AppDelegate.swift in Sources */,
 				E08041C91FE5484D00C0F836 /* MediaLibSelectViewController.swift in Sources */,
 				E08041D51FE5484D00C0F836 /* PicturesScanViewModel.swift in Sources */,
@@ -485,12 +512,14 @@
 				E08041C81FE5484D00C0F836 /* BookFolderController.swift in Sources */,
 				E08041D01FE5484D00C0F836 /* FileModel.swift in Sources */,
 				E08041DE1FE5484D00C0F836 /* MasterViewController.swift in Sources */,
+				E08041FB1FE5503000C0F836 /* LotusootRouter.swift in Sources */,
 				E08041C71FE5484D00C0F836 /* BookDetailViewController.swift in Sources */,
 				E08041DD1FE5484D00C0F836 /* MasterViewModel.swift in Sources */,
 				E08041E11FE5484D00C0F836 /* LockData.swift in Sources */,
 				E08041C01FE5484D00C0F836 /* MovieListViewModel.swift in Sources */,
 				E08041DB1FE5484D00C0F836 /* PicturesDetailViewController.swift in Sources */,
 				E08041E31FE5484D00C0F836 /* Alert.swift in Sources */,
+				E08041FA1FE5503000C0F836 /* Extension.swift in Sources */,
 				E08041D71FE5484D00C0F836 /* PicturesScanViewController.swift in Sources */,
 				E08041F01FE54ED700C0F836 /* CommonProtocol.swift in Sources */,
 				E08041D31FE5484D00C0F836 /* DocumentsManager.swift in Sources */,
