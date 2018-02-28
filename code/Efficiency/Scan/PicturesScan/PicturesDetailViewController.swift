@@ -18,6 +18,9 @@ class PicturesDetailViewController: UIViewController, UITableViewDataSource, UIT
     var runloopBlock: (() -> Void)?
     var runloopTimer: Timer?
     
+    let runloop = CFRunLoopGetCurrent()
+    var runloopObserver: CFRunLoopObserver? = nil;
+    
     @IBOutlet weak var tableView: UITableView!
     
     deinit {
@@ -43,6 +46,18 @@ class PicturesDetailViewController: UIViewController, UITableViewDataSource, UIT
 //        RunLoop.current.add(self.runloopTimer!, forMode: RunLoopMode.commonModes)
         
         addRunloopOberver()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        CFRunLoopRemoveObserver(runloop, runloopObserver, CFRunLoopMode.commonModes)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -86,17 +101,28 @@ extension PicturesDetailViewController {
     
     func addRunloopOberver() {
         
-        let runloop = CFRunLoopGetCurrent()
-        var runloopObserver: CFRunLoopObserver? = nil;
+        // https://www.jianshu.com/p/cb2efe0957f4  参考这个地址 指针类型转换
+//        let controllerPoint = Unmanaged<PicturesDetailViewController>.passRetained(self).toOpaque()
+        let controllerPoint = unsafeBitCast(self, to: UnsafeMutableRawPointer.self)
         
-        // https://stackoverflow.com/questions/31895449/using-unsafemutablepointer-and-cfrunloopobservercontext-in-swift-2
-        UnsafeMutableRawPointer
-        var content = CFRunLoopObserverContext(version: 0, info: &self, retain: nil, release: nil, copyDescription: nil)
+        
+        var content = CFRunLoopObserverContext(version: 0, info: controllerPoint, retain: nil, release: nil, copyDescription: nil)
         
         runloopObserver = CFRunLoopObserverCreate(nil, CFRunLoopActivity.beforeWaiting.rawValue, true, 0, { (oberver, activity, info) in
             
+            if info == nil {//如果没有取到  直接返回
+                return
+            }
             
-            print("\(info)")
+//            let controller = Unmanaged<PicturesDetailViewController>.fromOpaque(info!).takeRetainedValue()
+            let controller = unsafeBitCast(info, to: PicturesDetailViewController.self)
+            
+            
+            if controller.isKind(of: PicturesDetailViewController.self) {
+                print("controller: \(controller)")
+                controller.runloopCall()
+            }
+            
             
         }, &content)
         
@@ -106,6 +132,16 @@ extension PicturesDetailViewController {
     
     @objc func runloopCall() {
         print("111");
+        
+        if runloopTasks.count == 0 {
+            return;
+        }
+        
+        if let task = runloopTasks.first as? ()->Void {
+            task()
+            runloopTasks.removeFirst()
+        }
+        
     }
     
     func addTasks(cell: PicDetailCell, picPath: String?) {
@@ -121,11 +157,4 @@ extension PicturesDetailViewController {
         }
     }
 }
-
-//void callBack() {
-//    if let block = self.runloopTasks.first as? ()->Void {
-//
-//    }
-//    print("come on")
-//}
 
