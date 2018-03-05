@@ -45,18 +45,17 @@ class MovieFolderController: UITableViewController {
         return datas.count
     }
 
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieFolderCell", for: indexPath as IndexPath)
-
+        
         // Configure the cell...
         let object = datas[indexPath.row]
         cell.textLabel!.text = object
-
+        
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.navigationController?.pushViewController(MovieDetailViewController(moviePath:viewModel!.path + "/" + datas[indexPath.row]), animated: true)
     }
 
