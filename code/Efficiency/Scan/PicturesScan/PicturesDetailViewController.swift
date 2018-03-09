@@ -41,6 +41,7 @@ class PicturesDetailViewController: UIViewController, UITableViewDataSource, UIT
         
         let cellNib = UINib(nibName: "PicDetailCell", bundle: nil)
         self.tableView.register(cellNib, forCellReuseIdentifier: "PicDetailCell")
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "PicFolderDetailCell")
         
 //        self.runloopTimer = Timer(timeInterval: 0.001, target: self, selector: #selector(PicturesDetailViewController.runloopCall), userInfo: nil, repeats: true)
 //        RunLoop.current.add(self.runloopTimer!, forMode: RunLoopMode.commonModes)
@@ -83,17 +84,40 @@ class PicturesDetailViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PicDetailCell", for: indexPath) as! PicDetailCell
         
-        addTasks(cell: cell, picPath: viewModel!.contents[indexPath.row].path)
+        let model = viewModel!.contents[indexPath.row]
+        if let picModel = model as? PicModel {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PicDetailCell", for: indexPath) as! PicDetailCell
+            
+            addTasks(cell: cell, picPath: picModel.path)
+            return cell
+        }
+        else if let folderModel = model as? FolderModel {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PicFolderDetailCell", for: indexPath)
+            cell.textLabel?.text = folderModel.name
+            return cell
+        }
         
-//        cell.picPath = viewModel!.contents[indexPath.row].path
+        return UITableViewCell()
         
-        return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return viewModel!.contents[indexPath.row].height
+        
+        let model = viewModel!.contents[indexPath.row]
+        if let picModel = model as? PicModel {
+            return picModel.height
+        }
+        
+        return 55
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let model = viewModel!.contents[indexPath.row]
+        if let folderModel = model as? FolderModel {
+            self.navigationController?.pushViewController(PicturesDetailViewController(folder: folderModel), animated: true)
+        }
     }
 }
 

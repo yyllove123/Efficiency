@@ -392,6 +392,7 @@
 						DevelopmentTeam = P7NXP7H7RJ;
 						DevelopmentTeamName = "yalin yang (Personal Team)";
 						LastSwiftMigration = 0920;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -663,6 +664,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P7NXP7H7RJ;
 				INFOPLIST_FILE = Efficiency/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -670,6 +672,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = yalin.Efficiency;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Efficiency/Efficiency-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
@@ -687,6 +690,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P7NXP7H7RJ;
 				INFOPLIST_FILE = Efficiency/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -694,6 +698,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = yalin.Efficiency;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Efficiency/Efficiency-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;

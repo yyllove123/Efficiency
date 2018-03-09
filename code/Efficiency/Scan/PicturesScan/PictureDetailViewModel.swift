@@ -13,7 +13,7 @@ struct PictureDetailViewModel {
 
     var name: String
     
-    var contents: [PicModel] = []
+    var contents: [Any] = []
     
     init(folder: FolderModel) {
         
@@ -23,12 +23,25 @@ struct PictureDetailViewModel {
         var contents = try! FileManager.default.contentsOfDirectory(atPath: folder.path)
         contents.sort()
         
+        var folderModels: [FolderModel] = []
+        var picModels: [PicModel] = []
+        
         for path in contents {
             
-            if let picModel = PicModel(path: folder.path + "/" + path) {
-                self.contents += [picModel]
+            if path.contains(".") {
+                if let picModel = PicModel(path: folder.path + "/" + path) {
+                    picModels += [picModel]
+                }
+            }
+            else {
+                let folderModel = FolderModel(path: folder.path + "/" + path, name: path, type: .Pic)
+                folderModels += [folderModel]
+                
             }
         }
+        
+        self.contents.append(folderModels)
+        self.contents.append(picModels)
     }
 }
 
