@@ -30,18 +30,23 @@ struct PictureDetailViewModel {
             
             if path.contains(".") {
                 if let picModel = PicModel(path: folder.path + "/" + path) {
-                    picModels += [picModel]
+                    picModels.append(picModel)
                 }
             }
             else {
                 let folderModel = FolderModel(path: folder.path + "/" + path, name: path, type: .Pic)
-                folderModels += [folderModel]
+                folderModels.append(folderModel)
                 
             }
         }
         
-        self.contents.append(folderModels)
-        self.contents.append(picModels)
+        for value in folderModels {
+            self.contents.append(value)
+        }
+        
+        for value in picModels {
+            self.contents.append(value)
+        }
     }
 }
 
