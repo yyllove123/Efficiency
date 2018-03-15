@@ -123,12 +123,85 @@ class PicturesDetailViewController: UIViewController, UITableViewDataSource, UIT
 
 extension PicturesDetailViewController {
     
+    func addRunloopOberver2() {
+        
+        // https://www.jianshu.com/p/cb2efe0957f4  参考这个地址 指针类型转换
+//        let controllerPoint = Unmanaged<PicturesDetailViewController>.passUnretained(self).toOpaque()
+//        UnsafeMutableRawPointer
+        var blockSelf = self
+        
+        print("\(self)")
+        let controllerPoint = withUnsafeMutablePointer(to: &blockSelf) { return $0}
+        print("controllerPoint: \(UnsafeMutableRawPointer(controllerPoint))")
+        let controller1 = UnsafeMutableRawPointer(controllerPoint).assumingMemoryBound(to: PicturesDetailViewController.self).pointee
+        print("controller111: \(controller1)")
+        
+        var content = CFRunLoopObserverContext(version: 0, info: UnsafeMutableRawPointer(controllerPoint), retain: nil, release: nil, copyDescription: nil)
+        
+        self.runloopObserver = CFRunLoopObserverCreate(nil, CFRunLoopActivity.beforeWaiting.rawValue, true, 0, { (oberver, activity, info) in
+            
+            if info == nil {//如果没有取到  直接返回
+                return
+            }
+            print("---- \(String(describing: info))")
+            
+            //                let value = info as UnsafeMutablePointer<PicturesDetailViewController>
+            
+//            let controller = info!.assumingMemoryBound(to: PicturesDetailViewController.self).pointee
+//            print("controller11: \(controller)")
+            
+            //                let con2 = info!.bindMemory(to: PicturesDetailViewController.self, capacity: 1)
+            //                print("controller2: \(con2.pointee)")
+            
+            
+            
+            let controller = Unmanaged<PicturesDetailViewController>.fromOpaque(info!).takeUnretainedValue()
+            //                let controller = unsafeBitCast(info, to: PicturesDetailViewController.self)
+            
+            
+            if controller.isKind(of: PicturesDetailViewController.self) {
+                print("controller: \(controller)")
+                controller.runloopCall()
+            }
+            
+            
+        }, &content)
+        
+        CFRunLoopAddObserver(runloop, runloopObserver, CFRunLoopMode.commonModes)
+    }
+    
+    func addRunloopOberver1() {
+        
+        // https://www.jianshu.com/p/cb2efe0957f4  参考这个地址 指针类型转换
+        let controllerPoint = Unmanaged<PicturesDetailViewController>.passUnretained(self).toOpaque()
+        
+        var content = CFRunLoopObserverContext(version: 0, info: controllerPoint, retain: nil, release: nil, copyDescription: nil)
+        
+        runloopObserver = CFRunLoopObserverCreate(nil, CFRunLoopActivity.beforeWaiting.rawValue, true, 0, { (oberver, activity, info) in
+            
+            if info == nil {//如果没有取到  直接返回
+                return
+            }
+            
+            let controller = Unmanaged<PicturesDetailViewController>.fromOpaque(info!).takeUnretainedValue()
+            
+            
+            if controller.isKind(of: PicturesDetailViewController.self) {
+                print("controller: \(controller)")
+                controller.runloopCall()
+            }
+            
+            
+        }, &content)
+        
+        CFRunLoopAddObserver(runloop, runloopObserver, CFRunLoopMode.commonModes)
+    }
+    
     func addRunloopOberver() {
         
         // https://www.jianshu.com/p/cb2efe0957f4  参考这个地址 指针类型转换
 //        let controllerPoint = Unmanaged<PicturesDetailViewController>.passRetained(self).toOpaque()
         let controllerPoint = unsafeBitCast(self, to: UnsafeMutableRawPointer.self)
-        
         
         var content = CFRunLoopObserverContext(version: 0, info: controllerPoint, retain: nil, release: nil, copyDescription: nil)
         
@@ -140,7 +213,7 @@ extension PicturesDetailViewController {
             
 //            let controller = Unmanaged<PicturesDetailViewController>.fromOpaque(info!).takeRetainedValue()
             let controller = unsafeBitCast(info, to: PicturesDetailViewController.self)
-            
+            let controller1 = info!.assumingMemoryBound(to: PicturesDetailViewController.self).pointee
             
             if controller.isKind(of: PicturesDetailViewController.self) {
                 print("controller: \(controller)")
