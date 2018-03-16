@@ -46,7 +46,7 @@ class PicturesDetailViewController: UIViewController, UITableViewDataSource, UIT
 //        self.runloopTimer = Timer(timeInterval: 0.001, target: self, selector: #selector(PicturesDetailViewController.runloopCall), userInfo: nil, repeats: true)
 //        RunLoop.current.add(self.runloopTimer!, forMode: RunLoopMode.commonModes)
         
-        addRunloopOberver()
+        addRunloopOberver1()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -126,15 +126,8 @@ extension PicturesDetailViewController {
     func addRunloopOberver2() {
         
         // https://www.jianshu.com/p/cb2efe0957f4  参考这个地址 指针类型转换
-//        let controllerPoint = Unmanaged<PicturesDetailViewController>.passUnretained(self).toOpaque()
-//        UnsafeMutableRawPointer
         var blockSelf = self
-        
-        print("\(self)")
         let controllerPoint = withUnsafeMutablePointer(to: &blockSelf) { return $0}
-        print("controllerPoint: \(UnsafeMutableRawPointer(controllerPoint))")
-        let controller1 = UnsafeMutableRawPointer(controllerPoint).assumingMemoryBound(to: PicturesDetailViewController.self).pointee
-        print("controller111: \(controller1)")
         
         var content = CFRunLoopObserverContext(version: 0, info: UnsafeMutableRawPointer(controllerPoint), retain: nil, release: nil, copyDescription: nil)
         
@@ -143,25 +136,13 @@ extension PicturesDetailViewController {
             if info == nil {//如果没有取到  直接返回
                 return
             }
-            print("---- \(String(describing: info))")
             
-            //                let value = info as UnsafeMutablePointer<PicturesDetailViewController>
+            let controller = UnsafeMutableRawPointer(info)?.assumingMemoryBound(to: PicturesDetailViewController.self).pointee
             
-//            let controller = info!.assumingMemoryBound(to: PicturesDetailViewController.self).pointee
-//            print("controller11: \(controller)")
+            assert(false, "崩溃，这里按理说应该是可以的，我自己写了C方法传值试验成功，但是可能是由于CF框架里面有一些内存方面的处理，导致这里的方法不能使用，而且CF框架建议使用Unmanaged的方式转换指针")
             
-            //                let con2 = info!.bindMemory(to: PicturesDetailViewController.self, capacity: 1)
-            //                print("controller2: \(con2.pointee)")
-            
-            
-            
-            let controller = Unmanaged<PicturesDetailViewController>.fromOpaque(info!).takeUnretainedValue()
-            //                let controller = unsafeBitCast(info, to: PicturesDetailViewController.self)
-            
-            
-            if controller.isKind(of: PicturesDetailViewController.self) {
-                print("controller: \(controller)")
-                controller.runloopCall()
+            if (controller?.isKind(of: PicturesDetailViewController.self))! {
+                controller?.runloopCall()
             }
             
             
@@ -187,7 +168,6 @@ extension PicturesDetailViewController {
             
             
             if controller.isKind(of: PicturesDetailViewController.self) {
-                print("controller: \(controller)")
                 controller.runloopCall()
             }
             
@@ -200,7 +180,6 @@ extension PicturesDetailViewController {
     func addRunloopOberver() {
         
         // https://www.jianshu.com/p/cb2efe0957f4  参考这个地址 指针类型转换
-//        let controllerPoint = Unmanaged<PicturesDetailViewController>.passRetained(self).toOpaque()
         let controllerPoint = unsafeBitCast(self, to: UnsafeMutableRawPointer.self)
         
         var content = CFRunLoopObserverContext(version: 0, info: controllerPoint, retain: nil, release: nil, copyDescription: nil)
@@ -211,12 +190,9 @@ extension PicturesDetailViewController {
                 return
             }
             
-//            let controller = Unmanaged<PicturesDetailViewController>.fromOpaque(info!).takeRetainedValue()
             let controller = unsafeBitCast(info, to: PicturesDetailViewController.self)
-            let controller1 = info!.assumingMemoryBound(to: PicturesDetailViewController.self).pointee
             
             if controller.isKind(of: PicturesDetailViewController.self) {
-                print("controller: \(controller)")
                 controller.runloopCall()
             }
             
@@ -228,7 +204,6 @@ extension PicturesDetailViewController {
     }
     
     @objc func runloopCall() {
-        print("111");
         
         if runloopTasks.count == 0 {
             return;
